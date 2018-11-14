@@ -1,0 +1,111 @@
+[1mdiff --git a/index.html b/index.html[m
+[1mindex 68b8af3..89d6a9e 100644[m
+[1m--- a/index.html[m
+[1m+++ b/index.html[m
+[36m@@ -1,23 +1,29 @@[m
+ <!DOCTYPE html>[m
+[31m-<html lang="en">[m
+[32m+[m[32m<html>[m
+[32m+[m
+ 	<head>[m
+ 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>[m
+ 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>[m
+[31m-		<title>SMARTUMa</title>[m
+[32m+[m		[32m<title>SmartUMa</title>[m
+ 		<link href="vendor/materialize/icon.css" rel="stylesheet">[m
+ 	      <link href="vendor/materialize/materialize.min.css" rel="stylesheet" type="text/css" media="screen,projection"/>[m
+[32m+[m	[32m      <link href="index.css" rel="stylesheet" type="text/css" media="screen,projection"/>[m
+ 	      <script src="vendor/jquery.slim.min.js"></script>[m
+[31m-	      <script src="vendor/materialize/materialize.js"></script>[m
+[32m+[m	[32m      <script src="vendor/materialize/materialize.min.js"></script>[m
+ 	</head>[m
+[32m+[m
+ 	<body>[m
+[31m-	  <nav class="light-blue lighten-1" role="navigation">[m
+[31m-	    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>[m
+[32m+[m
+[32m+[m	[32m  <nav class="color lighten-1" role="navigation">[m
+[32m+[m	[32m    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">SmartUMa</a>[m
+ 	      <ul class="right hide-on-med-and-down">[m
+[31m-	        <li><a href="#">Navbar Link</a></li>[m
+[32m+[m	[32m        <li><a href="#wifi">Ocupação do Wifi</a></li>[m
+[32m+[m	[32m        <li><a href="#temp">Temperatura</a></li>[m[41m	    [m
+ 	      </ul>[m
+ [m
+ 	      <ul id="nav-mobile" class="sidenav">[m
+[31m-	        <li><a href="#">Navbar Link</a></li>[m
+[32m+[m	[32m        <li><a href="#wifi">Ocupação do Wifi</a></li>[m
+[32m+[m	[32m        <li><a href="#temp">Temperatura</a></li>[m[41m	        [m
+ 	      </ul>[m
+ 	      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>[m
+ 	    </div>[m
+[36m@@ -39,43 +45,15 @@[m
+ [m
+ [m
+ 	  <div class="container">[m
+[31m-	    <div class="section">[m
+[31m-[m
+[31m-	      <!--   Icon Section   -->[m
+[31m-	      <div class="row">[m
+[31m-	        <div class="col s12 m4">[m
+[31m-	          <div class="icon-block">[m
+[31m-	            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>[m
+[31m-	            <h5 class="center">Speeds up development</h5>[m
+[32m+[m	[32m    <div class="section" id="wifi">[m
+ [m
+[31m-	            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>[m
+[31m-	          </div>[m
+[31m-	        </div>[m
+[31m-[m
+[31m-	        <div class="col s12 m4">[m
+[31m-	          <div class="icon-block">[m
+[31m-	            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>[m
+[31m-	            <h5 class="center">User Experience Focused</h5>[m
+[31m-[m
+[31m-	            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>[m
+[31m-	          </div>[m
+[31m-	        </div>[m
+[31m-[m
+[31m-	        <div class="col s12 m4">[m
+[31m-	          <div class="icon-block">[m
+[31m-	            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>[m
+[31m-	            <h5 class="center">Easy to work with</h5>[m
+[31m-[m
+[31m-	            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>[m
+[31m-	          </div>[m
+[31m-	        </div>[m
+[31m-	      </div>[m
+[32m+[m	[32m    </div>[m
+[32m+[m	[32m    <div class="section" id="temp">[m
+ [m
+ 	    </div>[m
+[31m-	    <br><br>[m
+ 	  </div>[m
+ [m
+[31m-	  <footer class="page-footer orange">[m
+[32m+[m	[32m  <footer class="page-footer color">[m
+ 	    <div class="container">[m
+ 	      <div class="row">[m
+ 	        <div class="col l6 s12">[m
+[36m@@ -106,10 +84,20 @@[m
+ 	    </div>[m
+ 	    <div class="footer-copyright">[m
+ 	      <div class="container">[m
+[31m-	      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>[m
+[32m+[m	[41m      [m	[32mSMARTUMa[m
+ 	      </div>[m
+ 	    </div>[m
+ 	  </footer>[m
+ [m
+ 	  </body>[m
+[32m+[m
+[32m+[m	[32m  <script>[m
+[32m+[m		[32m(function($){[m
+[32m+[m		[32m  $(function(){[m
+[32m+[m
+[32m+[m		[32m    $('.sidenav').sidenav();[m
+[32m+[m
+[32m+[m		[32m  }); // end of document ready[m
+[32m+[m		[32m})(jQuery); // end of jQuery name space[m
+[32m+[m	[32m  </script>[m
+ </html>[m
