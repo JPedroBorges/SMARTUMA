@@ -2,11 +2,11 @@ import glob
 import time
 import threading
 
-"""base_dir = '/sys/bus/w1/devices/'
+base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
 
-interface = "wlan0"""
+interface = "wlan0"
 
 class TempReader(threading.Thread):
 
@@ -15,8 +15,7 @@ class TempReader(threading.Thread):
 
     def run(self):
         while True:
-            """print("Temperature: " + str(self.read_temp()) + "ยบC")"""
-            print('temp')
+            print("Temperature: " + str(self.read_temp()) + "ยบC")            
             time.sleep(1)   
 
     def read_temp_raw(self):

@@ -9,8 +9,7 @@ class SignalTranslator(threading.Thread):
 
     def run(self):
         while True:
-            """print("Wifi Signal: " + self.translate_signal(self.read_signal_raw()))"""
-            print('signal')
+            print("Wifi Signal: " + self.translate_signal(self.read_signal_raw()))
             time.sleep(1)
 
     def read_signal_raw(self):
