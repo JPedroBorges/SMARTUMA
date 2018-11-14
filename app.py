@@ -1,7 +1,7 @@
 import os
-from components import TempReader
-from components import SignalTranslator
-from components import DeviceScanner
+from TempReader import TempReader
+from SignalTranslator import SignalTranslator
+from DeviceScanner import DeviceScanner
 
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
