@@ -11,7 +11,8 @@
 	      <script src="vendor/jquery.min.js"></script>
 	      <script src="vendor/materialize/materialize.min.js"></script>
 	      <script src="vendor/fusioncharts/fusioncharts.js"></script>
-	      <script src="vendor/fusioncharts/themes/fusioncharts.theme.fusion.js"></script>	   	      	   
+	      <script src="vendor/fusioncharts/themes/fusioncharts.theme.fusion.js"></script>	   	      
+     	      <script src="js/extra.js"></script>		      	   
      	      <script src="index.js"></script>	
 	</head>
 
@@ -22,7 +23,7 @@
 	      <ul class="right hide-on-med-and-down">
 	        <li><a href="#qWifi">Qualidade do Wifi</a></li>	    	      	
 	        <li><a href="#oWifi">Ocupação do Wifi</a></li>
-	        <li><a href="#temp">Temperatura</a></li>	    
+	        <li><a href="#temp">Temperatura das salas de estudo</a></li>	    
 	      </ul>
 
 	      <ul id="nav-mobile" class="sidenav">
@@ -37,9 +38,11 @@
 	  <div class="section no-pad-bot">
 	    <div class="container">
 	      <br><br>
+	      <h3 class="center">Devo estudar na UMa?</h1>
 	      <h1 class="header center valign-wrapper">
 	      	<i class="center-align large material-icons"></i>
 	      </h1>	      
+	      <div id="satChart"></div>
 	      <br><br>
 	    </div>
 	  </div>
@@ -49,25 +52,22 @@
 	    <div class="section card" id="qWifi">
 	    		<h5 class="center-align"> Qualidade do Wifi </h5>
 	    		<div class="row">
-		    		<div class="col l4 s12" id="qWifiChart1"></div>
-		    		<div class="col l4 s12" id="qWifiChart2"></div>	    	
-		    		<div class="col l4 s12" id="qWifiChart3"></div>	
+		    		<div class="col l6 s12" id="qWifiChart1"></div>
+		    		<div class="col l6 s12" id="qWifiChart2"></div>	    		
 	    		</div>    
 	    </div>	   	  	
 	    <div class="section card" id="oWifi">
   		    	<h5 class="center-align"> Ocupação do Wifi </h5>
 	    		<div class="row">
-		    		<div class="col l4 s12" id="oWifiChart1"></div>
-		    		<div class="col l4 s12" id="oWifiChart2"></div>	    	
-		    		<div class="col l4 s12" id="oWifiChart3"></div>	
+		    		<div class="col l6 s12" id="oWifiChart1"></div>
+		    		<div class="col l6 s12" id="oWifiChart2"></div>	    	
 	    		</div>    
 	    </div>
 	    <div class="section card" id="temp">
 	    		<h5 class="center-align"> Temperatura das salas de estudo </h5>	    	
 	    		<div class="row">
-		    		<div class="col l4 s12" id="tempChart1"></div>
-		    		<div class="col l4 s12" id="tempChart2"></div>	    	
-		    		<div class="col l4 s12" id="tempChart3"></div>	
+		    		<div class="col l6 s12" id="tempChart1"></div>
+		    		<div class="col l6 s12" id="tempChart2"></div>	    	
 	    		</div>    
 	    </div>
 	  </div>
@@ -78,7 +78,7 @@
 	        <div class="col s12">
 	          <h3 class="center-align white-text">Equipa de desenvolvimento</h3>
 	        </div>
-	        <div class="col l3 s12 offset-l2">
+	        <div class="col l3 s12 offset-l2 center-align">
 	          <h5 class="center-align white-text">João Pedro Borges</h5>
 	          <img class="circle responsive-img" src="images/avatars/jborges.jpeg"/>
 	          <div class="center-align">
@@ -86,7 +86,7 @@
 		          <a class="center-align waves-effect waves-light btn light-blue darken-4" href="https://www.linkedin.com/in/jpedroborges/">LinkedIn</a>	          
 	          </div>	
 	        </div>
-	        <div class="col l3 s12 offset-l2">
+	        <div class="col l3 s12 offset-l2 center-align">
 	          <h5 class="center-align white-text">Joaquim Perez</h5>
 	          <img class="circle responsive-img" src="images/avatars/jperez.jpeg"/>
 	          <div class="center-align">

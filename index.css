@@ -18,6 +18,18 @@ nav, footer
 {
 	background-color: #00c853 !important;
 }
+.average .header
+{
+	color: #ffc107;
+}
+.average nav, .average footer
+{
+	background-color: #ffc107 !important;
+}
+.bad nav, .bad footer
+{
+	background-color: #e53935 !important;
+}
 .bad .header
 {
 	color: #e53935;
@@ -25,4 +37,8 @@ nav, footer
 .bad nav, .bad footer
 {
 	background-color: #e53935 !important;
+}
+.responsive-img
+{
+	max-width: 60% !important;
 }
