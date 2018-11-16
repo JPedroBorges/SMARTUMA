@@ -6,21 +6,23 @@ function getMonday()
   return new Date(d.setDate(diff));
 }
 
-function fill7Days(o)
+function getCurrentWeek()
 {
   var date = getMonday();
-  o.categories[0].category.push({ label: date.toLocaleDateString("pt-PT") });
+  var days = [];
+  days.push({ label: date.toLocaleDateString("pt-PT") });
   for(var i = 0; i < 6 ; i++)
   {
     date.setDate(date.getDate()+1);
-    o.categories[0].category.push({ label: date.toLocaleDateString("pt-PT") });
+    days.push({ label: date.toLocaleDateString("pt-PT") });
   }
+  return days;
 }
 
-function drawChart(type, renderAt, dataSource)
+function drawChart(renderAt, dataSource)
 {
     new FusionCharts({
-      type: type,
+      type: dataSource.type,
       renderAt: renderAt,
       dataSource: dataSource,
       height: HEIGHT,
@@ -29,38 +31,25 @@ function drawChart(type, renderAt, dataSource)
     }).render();
 }
 
-function drawCharts()
-{
-    drawChart('line','oWifiChart1',OWIFI_DATA);
-    drawChart('bubble','oWifiChart1',OWIFI_DATA);           
-    drawChart('bubble','oWifiChart2',OWIFI_DATA);        
-    drawChart('column2D','qWifiChart1',QWIFI_DATA);    
-
-    drawChart('column2D','tempChart1',TEMP_DATA);
-    drawChart('stackedcolumn2dline','tempChart2',TEMP_DATA_AVG);    
-
-    drawChart('angulargauge','satChart',SAT_DATA);    
-}
-
 function animateScroll()
 {
-    $('a').on('click', function(event){     
+    $("a:not([href*='details'],[href*='linkedin'],[href*='github'])").on('click', function(event){     
         event.preventDefault();
         $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
     });
 }
 
-function adaptTheme()
+function adaptTheme(grau_sat)
 {
     var header = $(".header");
     var icon = $(".header > i");
-    if(GRAU_SAT >= 75)
+    if(grau_sat >= 75)
     {
       $("body").addClass("good");
       icon.text("sentiment_very_satisfied");      
       header.append("Sim, podes vir à UMa!");  
     }
-    else if(GRAU_SAT >= 50)
+    else if(grau_sat >= 50)
     {
       $("body").addClass("average");
       icon.text("sentiment_neutral");      

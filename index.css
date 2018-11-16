@@ -10,6 +10,8 @@ nav, footer
 {
 	background-color: black !important;
 }
+
+/* GOOD */
 .good .header
 {
 	color: #00c853;
@@ -18,6 +20,13 @@ nav, footer
 {
 	background-color: #00c853 !important;
 }
+.good .btn-detail
+{
+	background-color: #00c853 !important;
+}
+/* */
+
+/* AVERAGE */
 .average .header
 {
 	color: #ffc107;
@@ -26,6 +35,13 @@ nav, footer
 {
 	background-color: #ffc107 !important;
 }
+.average .btn-detail
+{
+	background-color: #ffc107 !important;
+}
+/* */
+
+/* BAD */
 .bad nav, .bad footer
 {
 	background-color: #e53935 !important;
@@ -34,10 +50,12 @@ nav, footer
 {
 	color: #e53935;
 }
-.bad nav, .bad footer
+.bad .btn-detail
 {
 	background-color: #e53935 !important;
 }
+/* */
+
 .responsive-img
 {
 	max-width: 60% !important;
