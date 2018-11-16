@@ -1,8 +1,28 @@
-.color
+[class*='creditgroup']
 {
-	background-color: #009ddd !important;
+	display: none;
 }
-i.material-icons
+.header
 {
-	display: unset !important;
+	justify-content: center;
+}
+nav, footer
+{
+	background-color: black !important;
+}
+.good .header
+{
+	color: #00c853;
+}
+.good nav, .good footer
+{
+	background-color: #00c853 !important;
+}
+.bad .header
+{
+	color: #e53935;
+}
+.bad nav, .bad footer
+{
+	background-color: #e53935 !important;
 }

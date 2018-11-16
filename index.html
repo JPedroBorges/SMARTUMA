@@ -8,7 +8,7 @@
 		<link href="vendor/materialize/icon.css" rel="stylesheet">
 	      <link href="vendor/materialize/materialize.min.css" rel="stylesheet" type="text/css" media="screen,projection"/>
 	      <link href="index.css" rel="stylesheet" type="text/css" media="screen,projection"/>
-	      <script src="vendor/jquery.slim.min.js"></script>
+	      <script src="vendor/jquery.min.js"></script>
 	      <script src="vendor/materialize/materialize.min.js"></script>
 	      <script src="vendor/fusioncharts/fusioncharts.js"></script>
 	      <script src="vendor/fusioncharts/themes/fusioncharts.theme.fusion.js"></script>	   	      	   
@@ -28,71 +28,77 @@
 	      <ul id="nav-mobile" class="sidenav">
 	        <li><a href="#qWifi">Qualidade do Wifi</a></li>	      	
 	        <li><a href="#oWifi">Ocupação do Wifi</a></li>
-	        <li><a href="#temp">Temperatura</a></li>	        
+	        <li><a href="#temp">Temperatura das salas de estudo</a></li>	        
 	      </ul>
 	      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 	    </div>
 	  </nav>
-	  <div class="section no-pad-bot" id="index-banner">
+
+	  <div class="section no-pad-bot">
 	    <div class="container">
 	      <br><br>
-	      <h1 class="header center orange-text">Starter Template</h1>
-	      <div class="row center">
-	        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-	      </div>
-	      <div class="row center">
-	        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
-	      </div>
+	      <h1 class="header center valign-wrapper">
+	      	<i class="center-align large material-icons"></i>
+	      </h1>	      
 	      <br><br>
-
 	    </div>
 	  </div>
 
 
 	  <div class="container">
-	    <div class="section" id="qWifi">
-	    		<div id="qWifiChart"></div>
+	    <div class="section card" id="qWifi">
+	    		<h5 class="center-align"> Qualidade do Wifi </h5>
+	    		<div class="row">
+		    		<div class="col l4 s12" id="qWifiChart1"></div>
+		    		<div class="col l4 s12" id="qWifiChart2"></div>	    	
+		    		<div class="col l4 s12" id="qWifiChart3"></div>	
+	    		</div>    
 	    </div>	   	  	
-	    <div class="section" id="oWifi">
-	    		<div id="oWifiChart"></div>
+	    <div class="section card" id="oWifi">
+  		    	<h5 class="center-align"> Ocupação do Wifi </h5>
+	    		<div class="row">
+		    		<div class="col l4 s12" id="oWifiChart1"></div>
+		    		<div class="col l4 s12" id="oWifiChart2"></div>	    	
+		    		<div class="col l4 s12" id="oWifiChart3"></div>	
+	    		</div>    
 	    </div>
-	    <div class="section" id="temp">
-	    		<div id="tempChart"></div>
+	    <div class="section card" id="temp">
+	    		<h5 class="center-align"> Temperatura das salas de estudo </h5>	    	
+	    		<div class="row">
+		    		<div class="col l4 s12" id="tempChart1"></div>
+		    		<div class="col l4 s12" id="tempChart2"></div>	    	
+		    		<div class="col l4 s12" id="tempChart3"></div>	
+	    		</div>    
 	    </div>
 	  </div>
 
 	  <footer class="page-footer color">
 	    <div class="container">
 	      <div class="row">
-	        <div class="col l6 s12">
-	          <h5 class="white-text">Company Bio</h5>
-	          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
-
-
+	        <div class="col s12">
+	          <h3 class="center-align white-text">Equipa de desenvolvimento</h3>
 	        </div>
-	        <div class="col l3 s12">
-	          <h5 class="white-text">Settings</h5>
-	          <ul>
-	            <li><a class="white-text" href="#!">Link 1</a></li>
-	            <li><a class="white-text" href="#!">Link 2</a></li>
-	            <li><a class="white-text" href="#!">Link 3</a></li>
-	            <li><a class="white-text" href="#!">Link 4</a></li>
-	          </ul>
+	        <div class="col l3 s12 offset-l2">
+	          <h5 class="center-align white-text">João Pedro Borges</h5>
+	          <img class="circle responsive-img" src="images/avatars/jborges.jpeg"/>
+	          <div class="center-align">
+		          <a class="center-align waves-effect waves-light btn grey darken-4" href="https://github.com/JPedroBorges">GitHub</a>
+		          <a class="center-align waves-effect waves-light btn light-blue darken-4" href="https://www.linkedin.com/in/jpedroborges/">LinkedIn</a>	          
+	          </div>	
 	        </div>
-	        <div class="col l3 s12">
-	          <h5 class="white-text">Connect</h5>
-	          <ul>
-	            <li><a class="white-text" href="#!">Link 1</a></li>
-	            <li><a class="white-text" href="#!">Link 2</a></li>
-	            <li><a class="white-text" href="#!">Link 3</a></li>
-	            <li><a class="white-text" href="#!">Link 4</a></li>
-	          </ul>
+	        <div class="col l3 s12 offset-l2">
+	          <h5 class="center-align white-text">Joaquim Perez</h5>
+	          <img class="circle responsive-img" src="images/avatars/jperez.jpeg"/>
+	          <div class="center-align">
+		          <a class="center-align waves-effect waves-light btn grey darken-4" href="https://github.com/perezjquim">GitHub</a>
+		          <a class="center-align waves-effect waves-light btn light-blue darken-4" href="https://www.linkedin.com/in/perezjquim/">LinkedIn</a>	          
+	          </div>	          
 	        </div>
 	      </div>
 	    </div>
 	    <div class="footer-copyright">
 	      <div class="container">
-	      	SMARTUMa
+	      	SmartUMa 2018 &copy;
 	      </div>
 	    </div>
 	  </footer>
