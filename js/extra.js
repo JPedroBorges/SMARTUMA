@@ -43,13 +43,13 @@ function adaptTheme(grau_sat)
 {
     var header = $(".header");
     var icon = $(".header > i");
-    if(grau_sat >= 75)
+    if(grau_sat >= GOOD_THRESHOLD)
     {
       $("body").addClass("good");
       icon.text("sentiment_very_satisfied");      
       header.append("Sim, podes vir à UMa!");  
     }
-    else if(grau_sat >= 50)
+    else if(grau_sat >= BAD_THRESHOLD)
     {
       $("body").addClass("average");
       icon.text("sentiment_neutral");      
