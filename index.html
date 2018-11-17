@@ -6,15 +6,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
 		<title>SmartUMa</title>
 		<link href="vendor/materialize/icon.css" rel="stylesheet">
-	      <link href="vendor/materialize/materialize.min.css" rel="stylesheet" type="text/css" media="screen,projection"/>
-	      <link href="index.css" rel="stylesheet" type="text/css" media="screen,projection"/>
-	      <script src="vendor/jquery.min.js"></script>
-	      <script src="vendor/materialize/materialize.min.js"></script>
-	      <script src="vendor/fusioncharts/fusioncharts.js"></script>
-	      <script src="vendor/fusioncharts/themes/fusioncharts.theme.fusion.js"></script>	   	      
-     	      <script src="js/extra.js"></script>		      
-     	      <script src="js/charts.js"></script>		      	      	   
-     	      <script src="index.js"></script>	
+		<link href="vendor/materialize/materialize.min.css" rel="stylesheet" type="text/css" media="screen,projection"/>
+		<link href="index.css" rel="stylesheet" type="text/css" media="screen,projection"/>
+		<script src="vendor/jquery.min.js"></script>
+		<script src="vendor/materialize/materialize.min.js"></script>
+		<script src="vendor/fusioncharts/fusioncharts.js"></script>
+		<script src="vendor/fusioncharts/themes/fusioncharts.theme.fusion.js"></script>		         	      
+		<script src="config.json"></script>
+		<script src="js/extra.js"></script>		      
+		<script src="js/charts.js"></script>		      	      	   
+		<script src="index.js"></script>	
 	</head>
 
 	<body>
@@ -53,8 +54,8 @@
 	    <div class="section card" id="qWifi">
 	    		<h5 class="center-align"> Qualidade do Wifi </h5>
 	    		<div class="row">
-		    		<div class="col l6 s12" id="qWifiChart1"></div>
-		    		<div class="col l6 s12" id="qWifiChart2"></div>	    		
+		    		<div class="col l6 s12" id="qWifiChart"></div>
+		    		<div class="col l6 s12" id="qWifiChartWeek"></div>	    		
 	    		</div>    
 	    		<div class="row center-align">
 				<a class="center-align waves-effect waves-light btn btn-detail" href="./details/qWifi">Ver detalhes</a>	 
@@ -63,8 +64,8 @@
 	    <div class="section card" id="oWifi">
   		    	<h5 class="center-align"> Ocupação do Wifi </h5>
 	    		<div class="row">
-		    		<div class="col l6 s12" id="oWifiChart1"></div>
-		    		<div class="col l6 s12" id="oWifiChart2"></div>	    	
+		    		<div class="col l6 s12" id="oWifiChart"></div>
+		    		<div class="col l6 s12" id="oWifiChartWeek"></div>	    	
 	    		</div>    
 	    		<div class="row center-align">
 				<a class="center-align waves-effect waves-light btn btn-detail" href="./details/oWifi">Ver detalhes</a>	 
@@ -73,8 +74,8 @@
 	    <div class="section card" id="temp">
 	    		<h5 class="center-align"> Temperatura das salas de estudo </h5>	    	
 	    		<div class="row">
-		    		<div class="col l6 s12" id="tempChart1"></div>
-		    		<div class="col l6 s12" id="tempChart2"></div>	    	
+		    		<div class="col l6 s12" id="tempChart"></div>
+		    		<div class="col l6 s12" id="tempChartWeek"></div>	    	
 	    		</div> 
 	    		<div class="row center-align">
 				<a class="center-align waves-effect waves-light btn btn-detail" href="./details/temp">Ver detalhes</a>	 

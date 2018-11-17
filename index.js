@@ -1,11 +1,13 @@
+const days = getCurrentWeek();
 const GRAU_SAT = Math.random() * 100;
-temp_data.data = 
+
+CHARTS["TEMP"].data = 
   [{ "label": "Sala de estudo 0", "value": "23" }, 
     { "label": "Sala de estudo 1" , "value": "26" }, 
     { "label": "Núcleo de informática", "value": "18" }, 
     { "label": "Sala de estudo 3", "value": "14" }, 
     { "label": "Biblioteca", "value": "15"}];
-temp_data_week.dataset = 
+CHARTS["TEMP_WEEK"].dataset = 
   [{ 
       "seriesname": "Sala de estudo 0",
       "data": [{ "value": "21" },
@@ -41,8 +43,8 @@ temp_data_week.dataset =
                   { "value": "11"},
                   { "value": "12"}]
     }];
-sat_data.dials.dial = [{"value": GRAU_SAT}];
-owifi_data.data = [
+CHARTS["SAT"].dials.dial = [{"value": GRAU_SAT}];
+CHARTS["OWIFI"].data = [
     { "label": "00:00", "value": "20" },
     { "label": "01:00", "value": "17" },
     { "label": "02:00", "value": "12" },
@@ -51,8 +53,8 @@ owifi_data.data = [
     { "label": "05:00", "value": "8" },
     { "label": "06:00", "value": "3" },
     { "label": "07:00", "value": "5" }];
-var days = getCurrentWeek();
-owifi_data_week.data = [
+
+CHARTS["OWIFI_WEEK"].data = [
     { "label": days[0].label, "value": "50" },
     { "label": days[1].label, "value": "42" },
     { "label": days[2].label, "value": "44" },
@@ -61,7 +63,7 @@ owifi_data_week.data = [
     { "label": days[5].label, "value": "32" },
     { "label": days[6].label, "value": "11" }];
 
-qwifi_data_week.dataset[0].data = [
+CHARTS["QWIFI_WEEK"].dataset[0].data = [
     { "rowid": "Sala de estudo 0", "columnid": days[0].label, "value": -25 },
     { "rowid": "Sala de estudo 1", "columnid": days[0].label, "value": -74 },    
     { "rowid": "Núcleo de informática", "columnid": days[0].label, "value": -87 },    
@@ -97,7 +99,7 @@ qwifi_data_week.dataset[0].data = [
     { "rowid": "Núcleo de informática", "columnid": days[6].label, "value": -32 },    
     { "rowid": "Sala de estudo 3", "columnid": days[6].label, "value": -44 },    
     { "rowid": "Biblioteca", "columnid": days[6].label, "value": -42 }];
-qwifi_data.dataset.forEach(function(e)
+CHARTS["QWIFI"].dataset.forEach(function(e)
 {
     for(var i = 0; i < 7; i++)
       e.data.push({ value: -Math.random() * 100 });
@@ -107,11 +109,11 @@ $(document).ready(function()
 {
     animateScroll();
     adaptTheme(GRAU_SAT);
-    drawChart('oWifiChart1',owifi_data);           
-    drawChart('oWifiChart2',owifi_data_week); 
-    drawChart('qWifiChart1',qwifi_data);    
-    drawChart('qWifiChart2',qwifi_data_week);    
-    drawChart('tempChart1',temp_data);
-    drawChart('tempChart2',temp_data_week);    
-    drawChart('satChart',sat_data);    
+    drawChart('oWifiChart',CHARTS["OWIFI"]);           
+    drawChart('oWifiChartWeek',CHARTS["OWIFI_WEEK"]); 
+    drawChart('qWifiChart',CHARTS["QWIFI"]);    
+    drawChart('qWifiChartWeek',CHARTS["QWIFI_WEEK"]);    
+    drawChart('tempChart',CHARTS["TEMP"]);
+    drawChart('tempChartWeek',CHARTS["TEMP_WEEK"]);    
+    drawChart('satChart',CHARTS["SAT"]);    
 });

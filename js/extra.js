@@ -25,15 +25,15 @@ function drawChart(renderAt, dataSource)
       type: dataSource.type,
       renderAt: renderAt,
       dataSource: dataSource,
-      height: HEIGHT,
-      width: WIDTH,
+      height: config.chart.height,
+      width: config.chart.width,
       dataFormat: 'json'
     }).render();
 }
 
 function animateScroll()
 {
-    $("a:not([href*='details'],[href*='linkedin'],[href*='github'])").on('click', function(event){     
+    $("a[href*='#'][href!='#']").on('click', function(event){     
         event.preventDefault();
         $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
     });
@@ -43,22 +43,22 @@ function adaptTheme(grau_sat)
 {
     var header = $(".header");
     var icon = $(".header > i");
-    if(grau_sat >= GOOD_THRESHOLD)
+    if(grau_sat >= config.thresholds.good)
     {
       $("body").addClass("good");
-      icon.text("sentiment_very_satisfied");      
-      header.append("Sim, podes vir à UMa!");  
+      icon.text(config.results.good.icon);      
+      header.append(config.results.good.response);  
     }
-    else if(grau_sat >= BAD_THRESHOLD)
+    else if(grau_sat >= config.thresholds.bad)
     {
       $("body").addClass("average");
-      icon.text("sentiment_neutral");      
-      header.append("Talvez!");  
+      icon.text(config.results.average.icon);      
+      header.append(config.results.average.response);  
     }
     else 
     {
       $("body").addClass("bad");
-      icon.text("sentiment_very_dissatisfied");      
-      header.append("Não, não podes vir à UMa!");  
+      icon.text(config.results.bad.icon);      
+      header.append(config.results.bad.response);  
     }
 }

@@ -1,0 +1,32 @@
+config = 
+{
+	"chart":
+	{
+		"height": "300",
+		"width": "100%",
+		"theme": "fusion"
+	},
+	"thresholds":
+	{
+		"bad": 25,
+		"good": 75
+	},
+	"results":
+	{	
+		"good":
+		{
+			"icon": "sentiment_very_satisfied",
+			"response":  "Sim, podes vir à UMa!"
+		},
+		"average":
+		{
+			"icon": "sentiment_neutral",
+			"response": "Talvez!"
+		},		
+		"bad":
+		{
+			"icon": "sentiment_very_dissatisfied",
+			"response": "Não, não podes vir à UMa!"
+		}
+	}
+}
