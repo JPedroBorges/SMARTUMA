@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\Sensor\SensorResource;
+use App\Http\Resources\Sensor\SensorCollection;
 use App\Model\Sensor;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class SensorController extends Controller
      */
     public function index()
     {
-        return Sensor::all();
+        return SensorCollection::collection(Sensor::all());
     }
 
     /**

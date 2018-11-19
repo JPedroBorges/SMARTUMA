@@ -17,8 +17,12 @@ class SensorResource extends Resource
         return [
             'name' => $this->name,
             'type' => $this->type,
+            'room' => $this->room,
             'unit'=> $this->unit,
-            'room' => $this->room
+            'average' => $this->measures->count() > 0 ? round($this->measures->sum('value')/$this->measures->count(),2) : 'not enough measures',
+            'href' => [
+                'measures' => route('measures.index', $this->id)
+            ]
         ];
     }
 }

@@ -2,9 +2,9 @@
 
 namespace App\Http\Resources\Sensor;
 
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Resources\Json\Resource;
 
-class SensorCollection extends ResourceCollection
+class SensorCollection extends Resource
 {
     /**
      * Transform the resource collection into an array.
@@ -14,6 +14,13 @@ class SensorCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'name' => $this->name,
+            'type' => $this->type,
+            'room' => $this->room,
+            'href' => [
+                'link' => route('sensors.show', $this->id)
+            ]
+        ];
     }
 }
