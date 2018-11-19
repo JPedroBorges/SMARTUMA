@@ -17,8 +17,8 @@ class CreateMeasuresTable extends Migration
             $table->increments('id');
             $table->integer('sensor_id')->references('id')
                 ->on('sensors')->onDelete('cascade');
-            $table->integer('value');
-            $table->integer('unit');
+            $table->float('value');
+            $table->string('unit');
             $table->timestamps();
         });
     }
