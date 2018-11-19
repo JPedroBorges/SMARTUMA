@@ -15,7 +15,8 @@ class CreateMeasuresTable extends Migration
     {
         Schema::create('measures', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('sensor_id')->references('id')
+            $table->integer('sensor_id')->unsigned();
+            $table->foreign('sensor_id')->references('id')
                 ->on('sensors')->onDelete('cascade');
             $table->float('value');
             $table->string('unit');
