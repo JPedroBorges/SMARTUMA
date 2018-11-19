@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Sensor\SensorResource;
 use App\Model\Sensor;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class SensorController extends Controller
      */
     public function index()
     {
-        //
+        return Sensor::all();
     }
 
     /**
@@ -46,7 +47,7 @@ class SensorController extends Controller
      */
     public function show(Sensor $sensor)
     {
-        //
+        return new SensorResource($sensor);
     }
 
     /**
