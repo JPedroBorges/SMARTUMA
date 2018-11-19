@@ -16,7 +16,7 @@ class SensorController extends Controller
      */
     public function index()
     {
-        return SensorCollection::collection(Sensor::all());
+        return SensorCollection::collection(Sensor::paginate(20));
     }
 
     /**

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\MeasureReasource;
+use App\Model\Sensor;
 use App\Model\Measure;
 use Illuminate\Http\Request;
 
@@ -12,9 +14,9 @@ class MeasureController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Sensor $sensor)
     {
-        //
+        return MeasureReasource::collection($sensor->measures);
     }
 
     /**
