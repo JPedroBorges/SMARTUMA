@@ -6,7 +6,7 @@ base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
 
-interface = "wlan0"
+sampling_rate = 1
 
 class TempReader(threading.Thread):
 
@@ -16,7 +16,7 @@ class TempReader(threading.Thread):
     def run(self):
         while True:
             print("Temperature: " + str(self.read_temp()) + "ยบC")            
-            time.sleep(1)   
+            time.sleep(sampling_rate)   
 
     def read_temp_raw(self):
         f = open(device_file, 'r')

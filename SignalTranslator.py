@@ -2,6 +2,9 @@ import threading
 import time
 import subprocess
 
+interface = "wlan0"
+sampling_rate = 1
+
 class SignalTranslator(threading.Thread):
 
     def __init__(self):
@@ -10,7 +13,7 @@ class SignalTranslator(threading.Thread):
     def run(self):
         while True:
             print("Wifi Signal: " + self.translate_signal(self.read_signal_raw()))
-            time.sleep(1)
+            time.sleep(sampling_rate)
 
     def read_signal_raw(self):
         proc = subprocess.Popen(["iwlist", interface, "scan"],stdout=subprocess.PIPE, universal_newlines=True)

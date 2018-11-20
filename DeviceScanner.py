@@ -1,7 +1,8 @@
 import time
 import threading
-
 import os, re
+
+sampling_rate = 1
 
 class DeviceScanner(threading.Thread):
 
@@ -18,4 +19,4 @@ class DeviceScanner(threading.Thread):
               final_results = [{**i, **{'LAN_IP':i['LAN_IP'][1:-1]}} for i in final_results]
               print(len(final_results))
 
-              time.sleep(1)            
+              time.sleep(sampling_rate)            
