@@ -1,8 +1,8 @@
 import threading
 import time
 import subprocess
+import random
 
-interface = "wlan0"
 sampling_rate = 60 * 5
 
 class SignalTranslator(threading.Thread):
@@ -16,15 +16,11 @@ class SignalTranslator(threading.Thread):
             time.sleep(sampling_rate)
 
     def read_signal_raw(self):
-        proc = subprocess.Popen(["iwlist", interface, "scan"],stdout=subprocess.PIPE, universal_newlines=True)
-        out, err = proc.communicate()
-
-        value = int(out.split("\n")[4].split("Signal level=")[1].split(" ")[0])
-
-        return value
+        return random.randint(-100,-20)
     
     def translate_signal(self,value):
         status = ""
+
         if value > -30:
            status = "Amazing"
         elif value > -67:
