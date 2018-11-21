@@ -3,7 +3,7 @@ import time
 import subprocess
 
 interface = "wlan0"
-sampling_rate = 1
+sampling_rate = 60 * 5
 
 class SignalTranslator(threading.Thread):
 
