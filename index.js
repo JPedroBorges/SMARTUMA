@@ -109,6 +109,10 @@ $(document).ready(function()
 {
     animateScroll();
     adaptTheme(GRAU_SAT);
+    $(".sidenav > li > a").click(function()
+    {
+        $(".sidenav").sidenav();
+    });
     drawChart('oWifiChart',CHARTS["OWIFI"]);           
     drawChart('oWifiChartWeek',CHARTS["OWIFI_WEEK"]); 
     drawChart('qWifiChart',CHARTS["QWIFI"]);    
