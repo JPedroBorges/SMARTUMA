@@ -1,4 +1,4 @@
-config = 
+const config = 
 {
 	"chart":
 	{
@@ -16,7 +16,7 @@ config =
 		"good":
 		{
 			"icon": "sentiment_very_satisfied",
-			"response":  "Sim, podes vir à UMa!"
+			"response":  "Sim!"
 		},
 		"average":
 		{
@@ -26,7 +26,7 @@ config =
 		"bad":
 		{
 			"icon": "sentiment_very_dissatisfied",
-			"response": "Não, não podes vir à UMa!"
+			"response": "Não!"
 		}
 	}
 }
