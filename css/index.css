@@ -60,3 +60,13 @@ nav, footer
 {
 	max-width: 60% !important;
 }
+
+.brand-logo
+{
+	height: 100%;
+	display: flex !important;
+}
+.brand-logo > i > img
+{
+	height: 100%;
+}
