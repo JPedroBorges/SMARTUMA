@@ -1,6 +1,8 @@
 import glob
 import time
 import threading
+import requests
+from Component import Component
 
 base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
@@ -8,14 +10,16 @@ device_file = device_folder + '/w1_slave'
 
 sampling_rate = 60 * 5
 
-class TempReader(threading.Thread):
+class TempReader(Component):
 
-    def __init__(self):
-        threading.Thread.__init__(self)
+    def __init__(self,GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL):
+        super().__init__(GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL)
 
     def run(self):
         while True:
-            print("Temperature: " + str(self.read_temp()) + "ยบC")            
+            temp = self.read_temp()
+            print("Temperature: " + str(temp) + "ยบC")
+            self.post_data({ 'temp': temp })
             time.sleep(sampling_rate)   
 
     def read_temp_raw(self):

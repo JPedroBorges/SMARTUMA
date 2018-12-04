@@ -3,14 +3,16 @@ import threading
 import os
 from netaddr import *
 import subprocess
+import requests
+from Component import Component
 
 sampling_rate = 60
 network = '10.2.0.0/16'
 
-class DeviceScanner(threading.Thread):
+class DeviceScanner(Component):
 
-        def __init__(self):
-            threading.Thread.__init__(self)
+        def __init__(self,GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL):
+            super().__init__(GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL)
 
         def run(self):
 
@@ -25,10 +27,12 @@ class DeviceScanner(threading.Thread):
 
                 print('@@ Detected {} devices! @@'.format(count))
 
+                self.post_data({ 'count': count })
+
                 subthreads = []
                 count = 0
 
-                time.sleep(sampling_rate)   
+            time.sleep(sampling_rate)
 
 
 class PingThread(threading.Thread):
