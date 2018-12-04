@@ -10,8 +10,10 @@ $(document).ready(function()
         $(".sidenav").sidenav();
     });
 
-    //getSensors(function(data)
-    //{
+    getSensors(function(data)
+    {
+        console.log(data);
+
         CHARTS["TEMP"].data = 
             [{ "label": "Sala de estudo 0", "value": "23" }, 
             { "label": "Sala de estudo 1" , "value": "26" }, 
@@ -121,6 +123,8 @@ $(document).ready(function()
         drawChart('qWifiChartWeek',CHARTS["QWIFI_WEEK"]);    
         drawChart('tempChart',CHARTS["TEMP"]);
         drawChart('tempChartWeek',CHARTS["TEMP_WEEK"]);    
-        drawChart('satChart',CHARTS["SAT"]);    
-    //});    
+        drawChart('satChart',CHARTS["SAT"]);  
+        
+        setTimeout(() => $(".progress").css('display','none'),1000);
+    });    
 });
