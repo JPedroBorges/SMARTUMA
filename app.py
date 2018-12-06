@@ -9,10 +9,10 @@ os.system('modprobe w1-therm')
 CREDENTIALS_FILE = "credentials.conf"
 SEPARATOR = "="
 
-GET_TOKEN_URL = 'http://jpborges.pt/smartuma/oauth/token'
-GET_TOKEN_HEADERS = { 'Accept': 'application/json', 'Content-Type': 'application/json' }
+GET_TOKEN_URL = 'https://jpborges.pt/smartuma/oauth/token'
+GET_TOKEN_HEADERS = { 'Accept': 'application/json' }
 GET_TOKEN_DATA = { "grant_type" : "password" }
-POST_DATA_URL = 'http://jpborges.pt/smartuma/api/sensors'
+POST_DATA_URL = 'https://jpborges.pt/smartuma/api/sensors'
 
 with open(CREDENTIALS_FILE, "r") as file:
     for line in file:
