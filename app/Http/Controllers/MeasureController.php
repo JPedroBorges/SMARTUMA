@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\MeasureReasource;
+use App\Http\Requests\MeasuresRequest;
 use App\Model\Sensor;
 use App\Model\Measure;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class MeasureController extends Controller
 {
@@ -35,9 +37,19 @@ class MeasureController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MeasuresRequest $request, Sensor $sensor)
     {
-        //
+        $measure = new Measure;
+
+        $measure->value = $request->value; 
+        $measure->unit = $request->unit; 
+
+        $sensor->measures()->save($measure);
+
+        return response([
+            'data' => new MeasureReasource($measure)
+        ],Response::HTTP_CREATED);
+
     }
 
     /**

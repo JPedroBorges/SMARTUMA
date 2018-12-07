@@ -17,7 +17,7 @@ class MeasureReasource extends Resource
         return [
             'value' => $this->value,
             'unit' => $this->unit,
-            'timestamps' => $this->timestamps
+            'timestamps' => $this->created_at
         ];
     }
 }

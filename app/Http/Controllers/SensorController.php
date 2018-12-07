@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\Sensor\SensorResource;
+use App\Http\Requests\SensorRequest;
 use App\Http\Resources\Sensor\SensorCollection;
 use App\Model\Sensor;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class SensorController extends Controller
 {
@@ -40,9 +42,20 @@ class SensorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SensorRequest $request)
     {
-        //
+        $sensor = new Sensor;
+
+        $sensor->name = $request->name; 
+        $sensor->type = $request->type; 
+        $sensor->unit = $request->unit; 
+        $sensor->room = $request->room; 
+
+        $sensor->save();
+
+        return response([
+            'data' => new SensorResource($sensor)
+        ], Response::HTTP_CREATED);
     }
 
     /**
