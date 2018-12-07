@@ -5,6 +5,7 @@ import requests
 from Component import Component
 
 interface = "wlan0"
+#sampling_rate = 5
 sampling_rate = 60 * 5
 
 class SignalTranslator(Component):
@@ -15,8 +16,8 @@ class SignalTranslator(Component):
    def run(self):
       while True:
          signal = self.read_signal_raw()  
-         print("Wifi Signal: " + self.translate_signal(signal))
-         self.post_data({ 'signal': signal })
+         print("Wifi Signal: " + self.translate_signal(signal) + '(' + str(signal) + ')')
+         self.post_data({ 'value': signal, 'unit': 'dBm' })
          time.sleep(sampling_rate)
 
    def read_signal_raw(self):

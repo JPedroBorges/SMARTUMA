@@ -6,7 +6,7 @@ import subprocess
 import requests
 from Component import Component
 
-sampling_rate = 60
+sampling_rate = 60 * 5
 network = '10.2.0.0/16'
 
 class DeviceScanner(Component):
@@ -27,7 +27,7 @@ class DeviceScanner(Component):
 
                 print('@@ Detected {} devices! @@'.format(count))
 
-                self.post_data({ 'count': count })
+                self.post_data({ 'value': count, 'unit':'devices' })
 
                 subthreads = []
                 count = 0

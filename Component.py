@@ -14,15 +14,14 @@ class Component(threading.Thread):
 
     def post_data(self,data):
         res = requests.post(self.GET_TOKEN_URL, headers=self.GET_TOKEN_HEADERS, data=self.GET_TOKEN_DATA, timeout=TIMEOUT)
-        if(res.status_code != 200):
+        if(res.status_code < 200 or res.status_code >= 300):
             print('error ' + str(res.status_code) + ' while requesting token')
         else:
             print('success getting token')
             token = res.json()['access_token']
-            POST_DATA_HEADERS = { 'token': token }
-            POST_DATA = { 'device_count': data }
-            res = requests.post(self.POST_DATA_URL, headers=POST_DATA_HEADERS, data=POST_DATA, timeout=TIMEOUT)
-            if(res.status_code != 200):
+            POST_DATA_HEADERS = { 'Authorization': 'Bearer ' + token }
+            res = requests.post(self.POST_DATA_URL, headers=POST_DATA_HEADERS, data=data, timeout=TIMEOUT)
+            if(res.status_code < 200 and res.status_code >= 300):
                 print('error ' + str(res.status_code) + ' while sending data')                
             else:
                 print('success sending data')

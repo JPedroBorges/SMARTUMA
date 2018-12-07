@@ -8,6 +8,7 @@ base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
 
+#sampling_rate = 5
 sampling_rate = 60 * 5
 
 class TempReader(Component):
@@ -18,8 +19,8 @@ class TempReader(Component):
     def run(self):
         while True:
             temp = self.read_temp()
-            print("Temperature: " + str(temp) + "ยบC")
-            self.post_data({ 'temp': temp })
+            print("Temperature: " + str(temp) + "ºC")
+            self.post_data({ 'value': temp, 'unit': 'ºC' })
             time.sleep(sampling_rate)   
 
     def read_temp_raw(self):
