@@ -21,6 +21,7 @@ class Component(threading.Thread):
             token = res.json()['access_token']
             POST_DATA_HEADERS = { 'Authorization': 'Bearer ' + token }
             res = requests.post(self.POST_DATA_URL, headers=POST_DATA_HEADERS, data=data, timeout=TIMEOUT)
+            print(res.json())
             if(res.status_code < 200 and res.status_code >= 300):
                 print('error ' + str(res.status_code) + ' while sending data')                
             else:
