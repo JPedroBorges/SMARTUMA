@@ -6,6 +6,8 @@ from DeviceScanner import DeviceScanner
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 
+SAMPLING_RATE = 60 * 10
+
 CREDENTIALS_FILE = "credentials.conf"
 SENSORS_FILE = "sensors.conf"
 SEPARATOR = "="
@@ -34,6 +36,6 @@ with open(SENSORS_FILE, "r") as file:
 print(SENSORS)
     
 if __name__ == "__main__":
-    TempReader(GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL.replace("@",SENSORS["temp"])).start()
-    SignalTranslator(GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL.replace("@",SENSORS["signal"])).start()    
-    #DeviceScanner(GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL.replace("@",SENSORS["device"])).start()
+    TempReader(GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL.replace("@",SENSORS["temp"]),SAMPLING_RATE).start()
+    SignalTranslator(GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL.replace("@",SENSORS["signal"]),SAMPLING_RATE).start()    
+    #DeviceScanner(GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL.replace("@",SENSORS["device"]),SAMPLING_RATE).start()
