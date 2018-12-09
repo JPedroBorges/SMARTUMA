@@ -130,7 +130,7 @@ const charts = {
                 "chart":
                 {
                         "caption": "Hoje",
-                        "xaxisname": "Data",
+                        "xaxisname": "",
                         "yaxisname": "Qualidade (dBm)",
                         "showhovereffect": "1",
                         "numbersuffix": " dBm",
@@ -140,7 +140,7 @@ const charts = {
                 },
                 "categories": [
                 {
-                        "category": getCurrentWeek()
+                        "category": new Array(30)
                 }],
                 "dataset": []
         },

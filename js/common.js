@@ -79,6 +79,11 @@ function sortMeasuresAsc(measures)
         return measures.sort((a, b) => Date.parse(a.timestamps.date) - Date.parse(b.timestamps.date));
 }
 
+function sortMeasuresDesc(measures)
+{
+        return measures.sort((a, b) => Date.parse(b.timestamps.date) - Date.parse(a.timestamps.date));
+}
+
 function findLatestTodayValue(measures)
 {
         return measures.find((m) => new Date().setHours(0, 0, 0, 0) == Date.parse(m.timestamps.date.substring(0, 10)));
@@ -86,7 +91,12 @@ function findLatestTodayValue(measures)
 
 function filterByDay(measures, day)
 {
-        return measures.filter((m) => Date.parse(day.label.split('/').reverse().join('/')) == Date.parse(m.timestamps.date.substring(0, 10))).map((v) => v.value);
+        return measures.filter((m) => Date.parse(day.label.split('/').reverse().join('/')) == Date.parse(m.timestamps.date.substring(0, 10)));
+}
+
+function flattenValues(measures)
+{
+        return measures.map((v) => v.value);
 }
 
 function calculateAverage(measures)

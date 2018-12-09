@@ -3,22 +3,16 @@ function fillData()
         $.get(config.url, (res) =>
         {
                 const sensors = res.data;
-                var temp_sensors = sensors.filter((s) =>
-                {
-                        return s.name.includes("Temperature");
-                });
+                var temp_sensors = sensors.filter((s) => s.name.includes("Temperature"));
                 temp_sensors = temp_sensors.map((s) => s.href.link);
                 fillTempData(temp_sensors);
-                var wifi_sensors = sensors.filter((s) =>
-                {
-                        return s.name.includes("Wifi");
-                });
-                wifi_sensors = wifi_sensors.map((s) => s.href.link);
-                fillWifiData(wifi_sensors);
+                var signal_sensors = sensors.filter((s) => s.name.includes("Wifi"));
+                signal_sensors = signal_sensors.map((s) => s.href.link);
+                fillSignalData(signal_sensors);
         });
 }
 
-function fillWifiData(sensors)
+function fillSignalData(sensors)
 {
         sensors.forEach((s) =>
         {
@@ -28,48 +22,34 @@ function fillWifiData(sensors)
                         var href = data.href.measures;
                         $.get(href).done((res) =>
                         {
-                                var measures = res.data;
-                                charts.qwifi.dataset.push(
+                                var measures = sortMeasuresAsc(res.data);
+                                days.forEach((d, index) =>
                                 {
-                                        "seriesname": data.room,
-                                        "data": []
+                                        var dayValues = filterByDay(measures, d);
+                                        if (dayValues.length)
+                                        {
+                                                if (index == 6)
+                                                {
+                                                        charts.qwifi.dataset.push(
+                                                        {
+                                                                "seriesname": data.room,
+                                                                "data": dayValues.slice(-30)
+                                                        });
+                                                }
+                                                var avg = calculateAverage(flattenValues(dayValues));
+                                                charts.qwifi_week.dataset[0].data.push(
+                                                {
+                                                        "rowid": data.room,
+                                                        "columnid": d.label,
+                                                        "value": avg
+                                                });
+                                        }
                                 });
-                        })
-                });
-        });
-        charts.qwifi.dataset.push(
-        {
-                "seriesname": "Sala de estudo 0",
-                "data": []
-        });
-        charts.qwifi.dataset.push(
-        {
-                "seriesname": "Sala de estudo 1",
-                "data": []
-        });
-        charts.qwifi.dataset.push(
-        {
-                "seriesname": "Núcleo de informática",
-                "data": []
-        });
-        charts.qwifi.dataset.push(
-        {
-                "seriesname": "Sala de estudo 3",
-                "data": []
-        });
-        charts.qwifi.dataset.push(
-        {
-                "seriesname": "Biblioteca",
-                "data": []
-        });
-        charts.qwifi.dataset.forEach(function(e)
-        {
-                for (var i = 0; i < 7; i++) e.data.push(
-                {
-                        value: -Math.random() * 100
+                        });
                 });
         });
         drawChart('qWifiChart', charts.qwifi);
+        drawChart('qWifiChartWeek', charts.qwifi_week);
 }
 
 function fillTempData(sensors)
@@ -98,7 +78,7 @@ function fillTempData(sensors)
                                                         });
                                                 }
                                         }
-                                        var dayValues = filterByDay(measures, d);
+                                        var dayValues = flattenValues(filterByDay(measures, d));
                                         if (dayValues.length)
                                         {
                                                 var avg = calculateAverage(dayValues);
