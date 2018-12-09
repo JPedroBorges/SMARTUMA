@@ -1,2 +1,6 @@
 __pycache__
 credentials.conf
+sensors.conf
+node_modules
+server.js
+makefile
