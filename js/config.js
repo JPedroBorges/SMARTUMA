@@ -96,7 +96,7 @@ const charts = {
                 }],
                 "dataset": []
         },
-        "owifi":
+        "device":
         {
                 "type": "area2d",
                 "chart":
@@ -111,7 +111,7 @@ const charts = {
                 },
                 "data": []
         },
-        "owifi_week":
+        "device_week":
         {
                 "type": "area2d",
                 "chart":
@@ -124,14 +124,14 @@ const charts = {
                 },
                 "data": []
         },
-        "qwifi":
+        "signal":
         {
                 "type": "msline",
                 "chart":
                 {
                         "caption": "Hoje",
                         "xaxisname": "",
-                        "yaxisname": "Qualidade (dBm)",
+                        "yaxisname": "Qualidade do sinal (dBm)",
                         "showhovereffect": "1",
                         "numbersuffix": " dBm",
                         "drawcrossline": "1",
@@ -144,7 +144,7 @@ const charts = {
                 }],
                 "dataset": []
         },
-        "qwifi_week":
+        "signal_week":
         {
                 "type": "heatmap",
                 "chart":
@@ -154,7 +154,7 @@ const charts = {
                         "yaxisname": "Localização",
                         "theme": config.chart.theme,
                         "showvalues": "0",
-                        "plottooltext": "<b>Qualidade: $dataValue</b>{br}dBm"
+                        "plottooltext": "<b>Qualidade do sinal: $dataValue</b>{br}dBm"
                 },
                 "dataset": [
                 {

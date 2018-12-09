@@ -7,6 +7,21 @@
 nav, footer {
         background-color: black !important;
 }
+.brand-logo>i>img {
+        height: 64 !important;
+}
+.busy-indicator {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #000000ad;
+        z-index: 9999;
+}
 /* GOOD */
 
 .good .header {
