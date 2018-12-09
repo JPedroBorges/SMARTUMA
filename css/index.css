@@ -1,72 +1,58 @@
-[class*='creditgroup']
-{
-	display: none;
+[class*='creditgroup'] {
+        display: none;
 }
-.header
-{
-	justify-content: center;
+.header {
+        justify-content: center;
 }
-nav, footer
-{
-	background-color: black !important;
+nav, footer {
+        background-color: black !important;
 }
-
 /* GOOD */
-.good .header
-{
-	color: #00c853;
+
+.good .header {
+        color: #00c853;
 }
-.good nav, .good footer
-{
-	background-color: #00c853 !important;
+.good nav, .good footer {
+        background-color: #00c853 !important;
 }
-.good .btn-detail
-{
-	background-color: #00c853 !important;
+.good .btn-detail {
+        background-color: #00c853 !important;
 }
 /* */
 
 /* AVERAGE */
-.average .header
-{
-	color: #ffc107;
+
+.average .header {
+        color: #ffc107;
 }
-.average nav, .average footer
-{
-	background-color: #ffc107 !important;
+.average nav, .average footer {
+        background-color: #ffc107 !important;
 }
-.average .btn-detail
-{
-	background-color: #ffc107 !important;
+.average .btn-detail {
+        background-color: #ffc107 !important;
 }
 /* */
 
 /* BAD */
-.bad nav, .bad footer
-{
-	background-color: #e53935 !important;
+
+.bad nav, .bad footer {
+        background-color: #e53935 !important;
 }
-.bad .header
-{
-	color: #e53935;
+.bad .header {
+        color: #e53935;
 }
-.bad .btn-detail
-{
-	background-color: #e53935 !important;
+.bad .btn-detail {
+        background-color: #e53935 !important;
 }
 /* */
 
-.responsive-img
-{
-	max-width: 60% !important;
+.responsive-img {
+        max-width: 60% !important;
 }
-
-.brand-logo
-{
-	height: 100%;
-	display: flex !important;
+.brand-logo {
+        height: 100%;
+        display: flex !important;
 }
-.brand-logo > i > img
-{
-	height: 100%;
+.brand-logo>i>img {
+        height: 100%;
 }
