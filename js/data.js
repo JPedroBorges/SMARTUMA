@@ -1,21 +1,28 @@
-function fillData()
+function fillData(days)
 {
         $.get(config.url, (res) =>
         {
                 const sensors = res.data;
                 var temp_sensors = sensors.filter((s) => s.name.includes("Temperature"));
                 temp_sensors = temp_sensors.map((s) => s.href.link);
-                fillTempData(temp_sensors);
+                fillTempData(temp_sensors, days);
                 var signal_sensors = sensors.filter((s) => s.name.includes("Wifi"));
                 signal_sensors = signal_sensors.map((s) => s.href.link);
-                fillSignalData(signal_sensors);
+                fillSignalData(signal_sensors, days);
                 var device_sensors = sensors.filter((s) => s.name.includes("Wifi"));
                 device_sensors = device_sensors.map((s) => s.href.link);
-                fillDeviceData(device_sensors);
+                fillDeviceData(device_sensors, days);
+                const GRAU_SAT = Math.random() * 100;
+                charts.grau_sat.dials.dial = [
+                {
+                        "value": GRAU_SAT
+                }];
+                drawChart('satChart', charts.grau_sat);
+                adaptTheme(GRAU_SAT);
         });
 }
 
-function fillDeviceData(sensors)
+function fillDeviceData(sensors, days)
 {
         sensors.forEach((s) =>
         {
@@ -50,7 +57,7 @@ function fillDeviceData(sensors)
         drawChart('deviceCW', charts.device_week);
 }
 
-function fillSignalData(sensors)
+function fillSignalData(sensors, days)
 {
         sensors.forEach((s) =>
         {
@@ -90,7 +97,7 @@ function fillSignalData(sensors)
         drawChart('signalCW', charts.signal_week);
 }
 
-function fillTempData(sensors)
+function fillTempData(sensors, days)
 {
         sensors.forEach((s) =>
         {
