@@ -1,6 +1,6 @@
 (function()
 {
-        $.when($.getScript("/js/common.js"), $.getScript("/js/config.js"), $.getScript("/js/data.js"), $.Deferred(function(deferred)
+        $.when($.getScript("js/common.js"), $.getScript("js/config.js"), $.getScript("js/data.js"), $.Deferred(function(deferred)
         {
                 $(deferred.resolve);
         })).done(function()
