@@ -12,14 +12,35 @@ function fillData(days)
                 var device_sensors = sensors.filter((s) => s.name.includes("Wifi"));
                 device_sensors = device_sensors.map((s) => s.href.link);
                 fillDeviceData(device_sensors, days);
-                const GRAU_SAT = Math.random() * 100;
-                charts.grau_sat.dials.dial = [
-                {
-                        "value": GRAU_SAT
-                }];
-                drawChart('satChart', charts.grau_sat);
-                adaptTheme(GRAU_SAT);
+                fillSatData();
         });
+}
+
+function fillSatData()
+{
+        // Ideal values
+        const IDEAL_TEMP = 23;
+        const IDEAL_SIGNAL = -67;
+        const IDEAL_DEVICES = 30;
+        // Importance values
+        const TEMP_IMPORTANCE = 40;
+        const DEVICE_IMPORTANCE = 30;
+        const SIGNAL_IMPORTANCE = 30;
+        // Latest values
+        const temp_latest_avg = calculateAverage(flattenValues(charts.temp.data));
+        const signal_latest_avg = calculateAverage(charts.signal.dataset.map((d) => d.data[d.data.length - 1].value));
+        const device_latest = charts.device.data[charts.device.data.length - 1].value;
+        // Calculated satisfaction values
+        const temp_sat_value = 1 - Math.abs((IDEAL_TEMP - temp_latest_avg) / IDEAL_TEMP);
+        const signal_sat_value = (signal_latest_avg >= IDEAL_SIGNAL) ? 1 : (1 - ((IDEAL_SIGNAL - signal_latest_avg) / signal_latest_avg));
+        const device_sat_value = (device_latest <= IDEAL_DEVICES) ? 1 : (1 - ((IDEAL_DEVICES - device_latest) / device_latest));
+        const grau_sat = TEMP_IMPORTANCE * temp_sat_value + SIGNAL_IMPORTANCE * signal_sat_value + DEVICE_IMPORTANCE * device_sat_value;
+        charts.grau_sat.dials.dial = [
+        {
+                "value": grau_sat
+        }];
+        drawChart('satChart', charts.grau_sat);
+        adaptTheme(grau_sat);
 }
 
 function fillDeviceData(sensors, days)
