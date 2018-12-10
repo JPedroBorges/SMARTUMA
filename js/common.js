@@ -85,13 +85,13 @@ function sortMeasuresDesc(measures)
 
 function findLatestTodayValue(measures)
 {
-        var today = getToday();
+        var today = getToday().getTime();
         return measures.find((m) => today == Date.parse(m.timestamps.date.substring(0, 10)));
 }
 
 function filterByDay(measures, day)
 {
-        var day = Date.parse(day.label.split('/').reverse().join('/'))
+        var day = Date.parse(day.label.split('/').reverse().join('/'));
         return measures.filter((m) => day == Date.parse(m.timestamps.date.substring(0, 10)));
 }
 
