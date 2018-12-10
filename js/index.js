@@ -5,7 +5,7 @@
                 $(deferred.resolve);
         })).done(function()
         {
-                const days = getLast7Days();
+                const days = getCurrentWeek();
                 $.ajaxSetup(
                 {
                         async: false

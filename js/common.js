@@ -1,22 +1,23 @@
-function getToday()
+function getMonday()
 {
-        var today = new Date();
-        today.setHours(0, 0, 0, 0);
-        return today;
+        d = new Date();
+        var day = d.getDay();
+        var diff = d.getDate() - day + (day == 0 ? -6 : 1);
+        return new Date(d.setDate(diff));
 }
 
-function getLast7Days()
+function getCurrentWeek()
 {
-        var date = getToday();
+        var date = getMonday();
         var days = [];
-        days.unshift(
+        days.push(
         {
                 label: date.toLocaleDateString("pt-PT")
         });
         for (var i = 0; i < 6; i++)
         {
-                date.setDate(date.getDate() - 1);
-                days.unshift(
+                date.setDate(date.getDate() + 1);
+                days.push(
                 {
                         label: date.toLocaleDateString("pt-PT")
                 });
@@ -85,19 +86,17 @@ function sortMeasuresDesc(measures)
 
 function findLatestTodayValue(measures)
 {
-        var today = getToday();
-        return measures.find((m) => today == Date.parse(m.timestamps.date.substring(0, 10)));
+        return measures.find((m) => new Date().setHours(0, 0, 0, 0) == Date.parse(m.timestamps.date.substring(0, 10)));
 }
 
 function filterByDay(measures, day)
 {
-        var day = Date.parse(day.label.split('/').reverse().join('/'))
-        return measures.filter((m) => day == Date.parse(m.timestamps.date.substring(0, 10)));
+        return measures.filter((m) => Date.parse(day.label.split('/').reverse().join('/')) == Date.parse(m.timestamps.date.substring(0, 10)));
 }
 
 function flattenValues(measures)
 {
-        return measures.map((v) => v.value).filter((d) => d);
+        return measures.map((v) => v.value);
 }
 
 function calculateAverage(measures)

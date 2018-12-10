@@ -92,7 +92,7 @@ const charts = {
                 },
                 "categories": [
                 {
-                        "category": getLast7Days()
+                        "category": getCurrentWeek()
                 }],
                 "dataset": []
         },
