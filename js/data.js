@@ -27,9 +27,9 @@ function fillSatData()
         const DEVICE_IMPORTANCE = 30;
         const SIGNAL_IMPORTANCE = 30;
         // Latest values
-        const temp_latest_avg = calculateAverage(flattenValues(charts.temp.data));
-        const signal_latest_avg = calculateAverage(charts.signal.dataset.map((d) => d.data[d.data.length - 1].value));
-        const device_latest = charts.device.data[charts.device.data.length - 1].value;
+        const temp_latest_avg = calculateAverage(flattenValues(charts.temp_week.dataset[0].data));
+        const signal_latest_avg = calculateAverage(flattenValues(charts.signal_week.dataset[0].data));
+        const device_latest = calculateAverage(flattenValues(charts.device_week.data));
         // Calculated satisfaction values
         const temp_sat_value = 1 - Math.abs((IDEAL_TEMP - temp_latest_avg) / IDEAL_TEMP);
         const signal_sat_value = (signal_latest_avg >= IDEAL_SIGNAL) ? 1 : (1 - ((IDEAL_SIGNAL - signal_latest_avg) / signal_latest_avg));
