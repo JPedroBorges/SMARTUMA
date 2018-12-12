@@ -9,7 +9,7 @@ function fillData(days)
                 var signal_sensors = sensors.filter((s) => s.name.includes("Wifi"));
                 signal_sensors = signal_sensors.map((s) => s.href.link);
                 fillSignalData(signal_sensors, days);
-                var device_sensors = sensors.filter((s) => s.name.includes("Wifi"));
+                var device_sensors = sensors.filter((s) => s.name.includes("Device"));
                 device_sensors = device_sensors.map((s) => s.href.link);
                 fillDeviceData(device_sensors, days);
                 fillSatData();
