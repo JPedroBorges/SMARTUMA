@@ -21,7 +21,7 @@ class DeviceScanner(Component):
                 for ip in  IPSet([network]):
                     try:
                         response = subprocess.check_output(
-                        ["ping", "-c", "1", "-n", "-W", "1", "-i","0.2", str(self.ip)],
+                        ["ping", "-c", "1", "-n", "-W", "1", "-i","0.2", str(ip)],
                         stderr=subprocess.STDOUT,
                         universal_newlines=True)
                         count += 1
