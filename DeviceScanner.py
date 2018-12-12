@@ -6,13 +6,12 @@ import subprocess
 import requests
 from Component import Component
 
-sampling_rate = 60 * 5
 network = '10.2.0.0/16'
 
 class DeviceScanner(Component):
 
-        def __init__(self,GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL):
-            super().__init__(GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL)
+        def __init__(self,GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL,SAMPLING_RATE):
+            super().__init__(GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL,SAMPLING_RATE)
 
         def run(self):
 
@@ -32,7 +31,7 @@ class DeviceScanner(Component):
                 subthreads = []
                 count = 0
 
-            time.sleep(sampling_rate)
+            time.sleep(self.SAMPLING_RATE)
 
 
 class PingThread(threading.Thread):
