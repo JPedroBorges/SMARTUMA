@@ -28,7 +28,13 @@ const config = {
                         "response": "Não!"
                 }
         },
-        "url": "https://jpborges.pt/smartuma/api/sensors"
+        "url": "https://jpborges.pt/smartuma/api/sensors",
+        "ideal_temp": 23,
+        "ideal_signal": -50,
+        "ideal_devices": 30,
+        "temp_importance": 30,
+        "device_importance": 30,
+        "signal_importance": 40
 }
 const charts = {
         "grau_sat":
@@ -68,16 +74,23 @@ const charts = {
         },
         "temp":
         {
-                "type": "bar2d",
+                "type": "msspline",
                 "chart":
                 {
                         "caption": "Hoje",
+                        "xaxisname": "",
+                        "yaxisname": "Temperatura (ºC)",
+                        "showhovereffect": "1",
                         "numbersuffix": " ºC",
-                        "xAxisName": "Localização",
-                        "yAxisName": "Temperatura (ºC)",
-                        "theme": config.chart.theme,
+                        "drawcrossline": "1",
+                        "plottooltext": "$seriesName: <b>$dataValue</b>",
+                        "theme": config.chart.theme
                 },
-                "data": []
+                "categories": [
+                {
+                        "category": new Array(30)
+                }],
+                "dataset": []
         },
         "temp_week":
         {

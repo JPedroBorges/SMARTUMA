@@ -4,10 +4,9 @@
         {
                 async: false
         });
-        $.when($.getScript("js/common.js"), $.getScript("js/config.js"), $.getScript("js/data.js"), $.Deferred(function(deferred)
-        {
-                $(deferred.resolve);
-        })).done(function()
+        const scripts = ['js/common.js', 'js/config.js', 'js/data.js'];
+        const queue = scripts.map(s => $.getScript(s));
+        $.when.apply(null, queue).done(function()
         {
                 const days = getLast7Days();
                 $(document).ready(function()

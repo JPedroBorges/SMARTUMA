@@ -12,29 +12,23 @@ function fillData(days)
                 var device_sensors = sensors.filter((s) => s.name.includes("Device"));
                 device_sensors = device_sensors.map((s) => s.href.link);
                 fillDeviceData(device_sensors, days);
+                $.ajaxSetup(
+                {
+                        async: true
+                });
                 fillSatData();
         });
 }
 
 function fillSatData()
 {
-        // Ideal values
-        const IDEAL_TEMP = 23;
-        const IDEAL_SIGNAL = -67;
-        const IDEAL_DEVICES = 30;
-        // Importance values
-        const TEMP_IMPORTANCE = 40;
-        const DEVICE_IMPORTANCE = 30;
-        const SIGNAL_IMPORTANCE = 30;
-        // Latest values
         const temp_latest_avg = calculateAverage(flattenValues(charts.temp_week.dataset[0].data));
         const signal_latest_avg = calculateAverage(flattenValues(charts.signal_week.dataset[0].data));
         const device_latest = calculateAverage(flattenValues(charts.device_week.data));
-        // Calculated satisfaction values
-        const temp_sat_value = 1 - Math.abs((IDEAL_TEMP - temp_latest_avg) / IDEAL_TEMP);
-        const signal_sat_value = (signal_latest_avg >= IDEAL_SIGNAL) ? 1 : (1 - ((IDEAL_SIGNAL - signal_latest_avg) / signal_latest_avg));
-        const device_sat_value = (device_latest <= IDEAL_DEVICES) ? 1 : (IDEAL_DEVICES / device_latest);
-        const grau_sat = TEMP_IMPORTANCE * temp_sat_value + SIGNAL_IMPORTANCE * signal_sat_value + DEVICE_IMPORTANCE * device_sat_value;
+        const temp_sat_value = 1 - Math.abs((config.ideal_temp - temp_latest_avg) / config.ideal_temp);
+        const signal_sat_value = (signal_latest_avg >= config.ideal_signal) ? 1 : (1 - ((config.ideal_signal - signal_latest_avg) / signal_latest_avg));
+        const device_sat_value = (device_latest <= config.ideal_devices) ? 1 : (config.ideal_devices / device_latest);
+        const grau_sat = config.temp_importance * temp_sat_value + config.signal_importance * signal_sat_value + config.device_importance * device_sat_value;
         charts.grau_sat.dials.dial = [
         {
                 "value": grau_sat
@@ -132,22 +126,18 @@ function fillTempData(sensors, days)
                                 var seriesdata = [];
                                 days.forEach((d, index) =>
                                 {
+                                        var dayValues = filterByDay(measures, d);
                                         if (index == days.length - 1)
                                         {
-                                                var today = findLatestTodayValue(measures);
-                                                if (today)
+                                                charts.temp.dataset.push(
                                                 {
-                                                        charts.temp.data.push(
-                                                        {
-                                                                "label": data.room,
-                                                                "value": "" + today.value
-                                                        });
-                                                }
+                                                        "seriesname": data.room,
+                                                        "data": dayValues.slice(-30)
+                                                });
                                         }
-                                        var dayValues = flattenValues(filterByDay(measures, d));
                                         if (dayValues.length)
                                         {
-                                                var avg = calculateAverage(dayValues);
+                                                var avg = calculateAverage(flattenValues(dayValues));
                                         }
                                         seriesdata.push(
                                         {

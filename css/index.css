@@ -1,14 +1,14 @@
 [class*='creditgroup'] {
         display: none;
 }
+html, body {
+        max-width: 100%;
+}
 .header {
         justify-content: center;
 }
 nav, footer {
         background-color: black !important;
-}
-.brand-logo>i>img {
-        height: 64 !important;
 }
 .busy-indicator {
         top: 0;
@@ -21,7 +21,6 @@ nav, footer {
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #000000ad;
         z-index: 9999;
 }
 /* GOOD */
@@ -72,7 +71,16 @@ nav, footer {
 }
 .brand-logo>i>img {
         height: 100%;
+        width: 64px;
+}
+@media only screen and (max-width: 350px) {
+        .brand-logo>i>img {
+                display: none;
+        }
 }
 #satChart {
         position: relative;
+}
+.footer-copyright>.container {
+        text-align: center;
 }
