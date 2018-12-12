@@ -6,7 +6,7 @@ function fillData(days)
                 var temp_sensors = sensors.filter((s) => s.name.includes("Temperature"));
                 temp_sensors = temp_sensors.map((s) => s.href.link);
                 fillTempData(temp_sensors, days);
-                var signal_sensors = sensors.filter((s) => s.name.includes("Wifi"));
+                var signal_sensors = sensors.filter((s) => s.name.includes("Device"));
                 signal_sensors = signal_sensors.map((s) => s.href.link);
                 fillSignalData(signal_sensors, days);
                 var device_sensors = sensors.filter((s) => s.name.includes("Wifi"));
