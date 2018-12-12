@@ -33,5 +33,3 @@ class DeviceScanner(Component):
                 self.post_data({ 'value': count, 'unit':'devices' })
 
                 count = 0
-
-                time.sleep(self.SAMPLING_RATE)
