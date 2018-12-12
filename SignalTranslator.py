@@ -1,11 +1,6 @@
-import threading
 import time
-import subprocess
-import requests
 import random
 from Component import Component
-
-interface = "wlan0"
 
 class SignalTranslator(Component):
 
@@ -20,16 +15,8 @@ class SignalTranslator(Component):
          time.sleep(self.SAMPLING_RATE)
 
    def read_signal_raw(self):
-      proc = subprocess.Popen(["iwlist", interface, "scan"],stdout=subprocess.PIPE, universal_newlines=True)
-      out, err = proc.communicate()
+      return round(random.uniform(-100,0),3)  
 
-      try:
-         value = int(out.split("\n")[4].split("Signal level=")[1].split(" ")[0])
-      except:
-         return round(random.uniform(-100,0),3)
-
-      return value
-   
    def translate_signal(self,value):
       status = ""
       if value > -30:

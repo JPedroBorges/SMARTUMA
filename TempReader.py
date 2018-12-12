@@ -1,7 +1,4 @@
-import glob
 import time
-import threading
-import requests
 import random
 from Component import Component
 
