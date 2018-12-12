@@ -33,7 +33,7 @@ function fillSatData()
         // Calculated satisfaction values
         const temp_sat_value = 1 - Math.abs((IDEAL_TEMP - temp_latest_avg) / IDEAL_TEMP);
         const signal_sat_value = (signal_latest_avg >= IDEAL_SIGNAL) ? 1 : (1 - ((IDEAL_SIGNAL - signal_latest_avg) / signal_latest_avg));
-        const device_sat_value = (device_latest <= IDEAL_DEVICES) ? 1 : (1 - ((IDEAL_DEVICES - device_latest) / device_latest));
+        const device_sat_value = (device_latest <= IDEAL_DEVICES) ? 1 : (IDEAL_DEVICES / device_latest);
         const grau_sat = TEMP_IMPORTANCE * temp_sat_value + SIGNAL_IMPORTANCE * signal_sat_value + DEVICE_IMPORTANCE * device_sat_value;
         charts.grau_sat.dials.dial = [
         {
