@@ -13,9 +13,11 @@ nav, footer {
 .busy-indicator {
         top: 0;
         left: 0;
+        right: 0;
+        bottom: 0;
         width: 100%;
         height: 100%;
-        position: fixed;
+        position: absolute;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -70,4 +72,7 @@ nav, footer {
 }
 .brand-logo>i>img {
         height: 100%;
+}
+#satChart {
+        position: relative;
 }
