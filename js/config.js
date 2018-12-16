@@ -3,7 +3,8 @@ const config = {
         {
                 "height": "300",
                 "width": "100%",
-                "theme": "fusion"
+                "theme": "fusion",
+                "drawAnchors": "0"
         },
         "thresholds":
         {
@@ -29,8 +30,8 @@ const config = {
                 }
         },
         "url": "https://jpborges.pt/smartuma/api/sensors",
-        "ideal_temp": 23,
-        "ideal_signal": -50,
+        "ideal_temp": 25,
+        "ideal_signal": -40,
         "ideal_devices": 30,
         "temp_importance": 30,
         "device_importance": 30,
@@ -77,14 +78,15 @@ const charts = {
                 "type": "msspline",
                 "chart":
                 {
-                        "caption": "Hoje",
+                        "caption": "",
                         "xaxisname": "",
                         "yaxisname": "Temperatura (ºC)",
                         "showhovereffect": "1",
                         "numbersuffix": " ºC",
                         "drawcrossline": "1",
                         "plottooltext": "$seriesName: <b>$dataValue</b>",
-                        "theme": config.chart.theme
+                        "theme": config.chart.theme,
+                        "drawAnchors": config.chart.drawAnchors
                 },
                 "categories": [
                 {
@@ -101,7 +103,8 @@ const charts = {
                         "numbersuffix": " ºC",
                         "xAxisName": "Data",
                         "yAxisName": "Temperatura (ºC)",
-                        "theme": config.chart.theme
+                        "theme": config.chart.theme,
+                        "drawAnchors": config.chart.drawAnchors
                 },
                 "categories": [
                 {
@@ -111,16 +114,17 @@ const charts = {
         },
         "device":
         {
-                "type": "area2d",
+                "type": "spline",
                 "chart":
                 {
-                        "caption": "Hoje",
-                        "yaxisname": "Nº dispositivos ligados (média)",
+                        "caption": "",
+                        "yaxisname": "# dispositivos",
                         "legendposition": "Right",
                         "drawanchors": "0",
                         "showvalues": "0",
                         "plottooltext": "<b>$dataValue</b>",
-                        "theme": config.chart.theme
+                        "theme": config.chart.theme,
+                        "drawAnchors": config.chart.drawAnchors
                 },
                 "data": []
         },
@@ -130,10 +134,11 @@ const charts = {
                 "chart":
                 {
                         "caption": "Últimos 7 dias (média)",
-                        "yaxisname": "Nº dispositivos ligados",
+                        "yaxisname": "# dispositivos",
                         "rotatelabels": "1",
                         "setadaptiveymin": "1",
-                        "theme": config.chart.theme
+                        "theme": config.chart.theme,
+                        "drawAnchors": config.chart.drawAnchors
                 },
                 "data": []
         },
@@ -142,14 +147,15 @@ const charts = {
                 "type": "msline",
                 "chart":
                 {
-                        "caption": "Hoje",
+                        "caption": "",
                         "xaxisname": "",
                         "yaxisname": "Qualidade do sinal (dBm)",
                         "showhovereffect": "1",
                         "numbersuffix": " dBm",
                         "drawcrossline": "1",
                         "plottooltext": "$seriesName: <b>$dataValue</b>",
-                        "theme": config.chart.theme
+                        "theme": config.chart.theme,
+                        "drawAnchors": config.chart.drawAnchors
                 },
                 "categories": [
                 {
@@ -166,8 +172,9 @@ const charts = {
                         "xaxisname": "Data",
                         "yaxisname": "Localização",
                         "theme": config.chart.theme,
+                        "drawAnchors": config.chart.drawAnchors,
                         "showvalues": "0",
-                        "plottooltext": "<b>Qualidade do sinal: $dataValue</b>{br}dBm"
+                        "plottooltext": "<b>Qualidade do sinal: $dataValue</b>{br}dBm",
                 },
                 "dataset": [
                 {
