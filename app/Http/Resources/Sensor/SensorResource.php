@@ -30,7 +30,7 @@ class SensorResource extends Resource
             'unit'=> $this->unit,
             'average'=> [
                 'average1' => $this->measures
-                    ->where('created_at', '>=', $date1)->where('created_at', '<=', $dat2)->avg('value'),
+                    ->where('created_at', '>=', $date1)->where('created_at', '<=', $date2)->avg('value'),
                 'average2' => $this->measures
                     ->where('created_at', '>=', $date2)->where('created_at', '<=', $date3)->avg('value'),
                 'average3' => $this->measures
