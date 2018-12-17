@@ -130,7 +130,7 @@ const charts = {
         },
         "device_week":
         {
-                "type": "area2d",
+                "type": "bar2d",
                 "chart":
                 {
                         "caption": "Últimos 7 dias (média)",

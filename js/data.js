@@ -39,29 +39,26 @@ function fillSatData()
 
 function fillDeviceData(sensors, days)
 {
-        sensors.forEach((s) =>
+        $.get(sensors[0]).done((res) =>
         {
-                $.get(s).done((res) =>
+                const data = res.data;
+                const href = data.href.measures;
+                const averages = Object.keys(data.average).map(k => data.average[k]);
+                $.get(href).done((res) =>
                 {
-                        const data = res.data;
-                        const href = data.href.measures;
-                        const averages = Object.keys(data.average).map(k => data.average[k]);
-                        $.get(href).done((res) =>
+                        const measures = sortMeasuresAsc(res.data);
+                        charts.device.data = measures;
+                });
+                days.forEach((d, index) =>
+                {
+                        if (averages[index])
                         {
-                                const measures = sortMeasuresAsc(res.data);
-                                days.forEach((d, index) =>
+                                charts.device_week.data.push(
                                 {
-                                        if (averages[index])
-                                        {
-                                                charts.device_week.data.push(
-                                                {
-                                                        "label": d.label,
-                                                        "value": averages[index]
-                                                });
-                                        }
+                                        "label": d.label,
+                                        "value": averages[index]
                                 });
-                                charts.device.data = measures;
-                        });
+                        }
                 });
         });
         drawChart('deviceC', charts.device);
