@@ -43,25 +43,24 @@ function fillDeviceData(sensors, days)
         {
                 $.get(s).done((res) =>
                 {
-                        var data = res.data;
-                        var href = data.href.measures;
+                        const data = res.data;
+                        const href = data.href.measures;
+                        const averages = Object.keys(data.average).map(k => data.average[k]);
                         $.get(href).done((res) =>
                         {
-                                var measures = sortMeasuresAsc(res.data);
+                                const measures = sortMeasuresAsc(res.data);
                                 days.forEach((d, index) =>
                                 {
-                                        var dayValues = filterByDay(measures, d);
-                                        if (dayValues.length)
+                                        if (averages[index])
                                         {
-                                                var avg = calculateAverage(flattenValues(dayValues));
                                                 charts.device_week.data.push(
                                                 {
                                                         "label": d.label,
-                                                        "value": avg
+                                                        "value": averages[index]
                                                 });
                                         }
                                 });
-                                charts.device.data = measures.slice(-30);
+                                charts.device.data = measures;
                         });
                 });
         });
@@ -75,29 +74,28 @@ function fillSignalData(sensors, days)
         {
                 $.get(s).done((res) =>
                 {
-                        var data = res.data;
-                        var href = data.href.measures;
+                        const data = res.data;
+                        const href = data.href.measures;
+                        const averages = Object.keys(data.average).map(k => data.average[k]);
                         $.get(href).done((res) =>
                         {
-                                var measures = sortMeasuresAsc(res.data);
+                                const measures = sortMeasuresAsc(res.data);
                                 days.forEach((d, index) =>
                                 {
-                                        var dayValues = filterByDay(measures, d);
-                                        if (dayValues.length)
+                                        if (averages[index])
                                         {
-                                                var avg = calculateAverage(flattenValues(dayValues));
                                                 charts.signal_week.dataset[0].data.push(
                                                 {
                                                         "rowid": data.room,
                                                         "columnid": d.label,
-                                                        "value": avg
+                                                        "value": averages[index]
                                                 });
                                         }
                                 });
                                 charts.signal.dataset.push(
                                 {
                                         "seriesname": data.room,
-                                        "data": measures.slice(-30)
+                                        "data": measures
                                 });
                         });
                 });
@@ -112,35 +110,26 @@ function fillTempData(sensors, days)
         {
                 $.get(s).done((res) =>
                 {
-                        var data = res.data;
-                        var href = data.href.measures;
+                        const data = res.data;
+                        const href = data.href.measures;
                         $.get(href).done((res) =>
                         {
-                                var measures = sortMeasuresAsc(res.data);
-                                var seriesdata = [];
-                                days.forEach((d, index) =>
-                                {
-                                        var dayValues = filterByDay(measures, d);
-                                        if (dayValues.length)
-                                        {
-                                                var avg = calculateAverage(flattenValues(dayValues));
-                                        }
-                                        seriesdata.push(
-                                        {
-                                                "value": avg
-                                        });
-                                });
+                                const measures = sortMeasuresAsc(res.data);
                                 charts.temp.dataset.push(
                                 {
-                                        "seriesname": data.room,
-                                        "data": measures.slice(-30)
+                                        seriesname: data.room,
+                                        data: measures
                                 });
-                                var dataset = {
-                                        "seriesname": data.room,
-                                        "data": seriesdata
-                                };
-                                charts.temp_week.dataset.push(dataset);
                         });
+                        const averages = Object.keys(data.average).map(k => (
+                        {
+                                value: data.average[k]
+                        }));
+                        const dataset = {
+                                "seriesname": data.room,
+                                "data": averages
+                        };
+                        charts.temp_week.dataset.push(dataset);
                 });
         });
         drawChart('tempC', charts.temp);
