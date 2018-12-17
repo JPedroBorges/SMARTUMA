@@ -27,9 +27,8 @@ class SensorCollection extends Resource
             'type' => $this->type,
             'room' => $this->room,
             'average'=> [
-
                 'average1' => $this->measures
-                    ->where('created_at', '>=', $date1)->where('created_at', '<=', $dat2)->avg('value'),
+                    ->where('created_at', '>=', $date1)->where('created_at', '<=', $date2)->avg('value'),
                 'average2' => $this->measures
                     ->where('created_at', '>=', $date2)->where('created_at', '<=', $date3)->avg('value'),
                 'average3' => $this->measures
@@ -42,7 +41,6 @@ class SensorCollection extends Resource
                     ->where('created_at', '>=', $date6)->where('created_at', '<=', $date7)->avg('value'),
                 'average7' => $this->measures
                     ->where('created_at', '>=', $date7)->avg('value') 
-            
             ],
             'href' => [
                 'measures' => route('measures.index', $this->id),
