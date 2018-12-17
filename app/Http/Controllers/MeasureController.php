@@ -22,7 +22,7 @@ class MeasureController extends Controller
      */
     public function index(Sensor $sensor)
     {
-        return MeasureReasource::collection($sensor->measures);
+        return MeasureReasource::collection($sensor->measures()->paginate(30));
     }
 
     /**
