@@ -120,8 +120,7 @@ const charts = {
                         "caption": "",
                         "yaxisname": "# dispositivos",
                         "legendposition": "Right",
-                        "drawanchors": "0",
-                        "showvalues": "0",
+                        "showhovereffect": "1",
                         "plottooltext": "<b>$dataValue</b>",
                         "theme": config.chart.theme,
                         "drawAnchors": config.chart.drawAnchors
