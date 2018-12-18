@@ -92,7 +92,8 @@ function findLatestTodayValue(measures)
 function filterByDay(measures, day)
 {
         var day = Date.parse(day.label.split('/').reverse().join('/'));
-        return measures.filter((m) => day == Date.parse(m.timestamps.date.substring(0, 10)));
+        if (measures && measures.length) return measures.filter((m) => day == Date.parse(m.timestamps.date.substring(0, 10)));
+        else return [];
 }
 
 function flattenValues(measures)

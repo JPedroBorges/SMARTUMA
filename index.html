@@ -21,469 +21,544 @@
                 <script src="js/index.js">
                 </script>
         </head>
-</html>
-<body>
-        <nav class="color lighten-1" role="navigation">
-                <div class="nav-wrapper container">
-                        <a class="brand-logo" href="#" id="logo-container">
-                                <i>
-                                        <img src="images/logo/logo-color.png"/>
-                                </i>
-                                SmartUMa
-                        </a>
-                        <ul class="right hide-on-med-and-down">
-                                <li>
-                                        <a href="#signal">
-                                                Qualidade do sinal Wifi
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#temp">
-                                                Temperatura das salas de estudo
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#device">
-                                                Ocupação da rede Wifi
-                                        </a>
-                                </li>
-                        </ul>
-                        <ul class="sidenav" id="nav-mobile">
-                                <li>
-                                        <a href="#signal">
-                                                Qualidade do sinal Wifi
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#temp">
-                                                Temperatura das salas de estudo
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#device">
-                                                Ocupação da rede Wifi
-                                        </a>
-                                </li>
-                        </ul>
-                        <a class="sidenav-trigger" data-target="nav-mobile" href="#">
-                                <i class="material-icons">
-                                        menu
-                                </i>
-                        </a>
-                </div>
-        </nav>
-        <div class="section no-pad-bot">
-                <div class="container">
-                        <br>
+        <body>
+                <nav class="color lighten-1" role="navigation">
+                        <div class="nav-wrapper container">
+                                <a class="brand-logo" href="#" id="logo-container">
+                                        <i>
+                                                <img src="images/logo/logo-color.png"/>
+                                        </i>
+                                        SmartUMa
+                                </a>
+                                <ul class="right hide-on-med-and-down">
+                                        <li>
+                                                <a href="#signal">
+                                                        Qualidade do sinal Wifi
+                                                </a>
+                                        </li>
+                                        <li>
+                                                <a href="#temp">
+                                                        Temperatura das salas de estudo
+                                                </a>
+                                        </li>
+                                        <li>
+                                                <a href="#device">
+                                                        Ocupação da rede Wifi
+                                                </a>
+                                        </li>
+                                </ul>
+                                <ul class="sidenav" id="nav-mobile">
+                                        <li>
+                                                <a href="#signal">
+                                                        Qualidade do sinal Wifi
+                                                </a>
+                                        </li>
+                                        <li>
+                                                <a href="#temp">
+                                                        Temperatura das salas de estudo
+                                                </a>
+                                        </li>
+                                        <li>
+                                                <a href="#device">
+                                                        Ocupação da rede Wifi
+                                                </a>
+                                        </li>
+                                </ul>
+                                <a class="sidenav-trigger" data-target="nav-mobile" href="#">
+                                        <i class="material-icons">
+                                                menu
+                                        </i>
+                                </a>
+                        </div>
+                </nav>
+                <p class="overlay">
+                        Dados não fiáveis
+                </p>
+                <div class="section no-pad-bot">
+                        <div class="container">
                                 <br>
-                                        <h4 class="center">
-                                                Devo estudar na UMa?
-                                        </h4>
+                                        <br>
+                                                <h4 class="center">
+                                                        Devo estudar na UMa?
+                                                </h4>
+                                        </br>
                                 </br>
+                        </div>
+                </div>
+                <h1 class="header center valign-wrapper">
+                        <i class="center-align large material-icons">
+                        </i>
+                </h1>
+                <div id="satChart">
+                        <div class="busy-indicator">
+                                <div class="preloader-wrapper big active">
+                                        <div class="spinner-layer spinner-blue">
+                                                <div class="circle-clipper left">
+                                                        <div class="circle">
+                                                        </div>
+                                                </div>
+                                                <div class="gap-patch">
+                                                        <div class="circle">
+                                                        </div>
+                                                </div>
+                                                <div class="circle-clipper right">
+                                                        <div class="circle">
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="spinner-layer spinner-red">
+                                                <div class="circle-clipper left">
+                                                        <div class="circle">
+                                                        </div>
+                                                </div>
+                                                <div class="gap-patch">
+                                                        <div class="circle">
+                                                        </div>
+                                                </div>
+                                                <div class="circle-clipper right">
+                                                        <div class="circle">
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="spinner-layer spinner-yellow">
+                                                <div class="circle-clipper left">
+                                                        <div class="circle">
+                                                        </div>
+                                                </div>
+                                                <div class="gap-patch">
+                                                        <div class="circle">
+                                                        </div>
+                                                </div>
+                                                <div class="circle-clipper right">
+                                                        <div class="circle">
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="spinner-layer spinner-green">
+                                                <div class="circle-clipper left">
+                                                        <div class="circle">
+                                                        </div>
+                                                </div>
+                                                <div class="gap-patch">
+                                                        <div class="circle">
+                                                        </div>
+                                                </div>
+                                                <div class="circle-clipper right">
+                                                        <div class="circle">
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <br>
+                        <br>
                         </br>
-                </div>
-        </div>
-</body>
-<h1 class="header center valign-wrapper">
-        <i class="center-align large material-icons">
-        </i>
-</h1>
-<div id="satChart">
-        <div class="busy-indicator">
-                <div class="preloader-wrapper big active">
-                        <div class="spinner-layer spinner-blue">
-                                <div class="circle-clipper left">
-                                        <div class="circle">
-                                        </div>
-                                </div>
-                                <div class="gap-patch">
-                                        <div class="circle">
-                                        </div>
-                                </div>
-                                <div class="circle-clipper right">
-                                        <div class="circle">
-                                        </div>
-                                </div>
-                        </div>
-                        <div class="spinner-layer spinner-red">
-                                <div class="circle-clipper left">
-                                        <div class="circle">
-                                        </div>
-                                </div>
-                                <div class="gap-patch">
-                                        <div class="circle">
-                                        </div>
-                                </div>
-                                <div class="circle-clipper right">
-                                        <div class="circle">
-                                        </div>
-                                </div>
-                        </div>
-                        <div class="spinner-layer spinner-yellow">
-                                <div class="circle-clipper left">
-                                        <div class="circle">
-                                        </div>
-                                </div>
-                                <div class="gap-patch">
-                                        <div class="circle">
-                                        </div>
-                                </div>
-                                <div class="circle-clipper right">
-                                        <div class="circle">
-                                        </div>
-                                </div>
-                        </div>
-                        <div class="spinner-layer spinner-green">
-                                <div class="circle-clipper left">
-                                        <div class="circle">
-                                        </div>
-                                </div>
-                                <div class="gap-patch">
-                                        <div class="circle">
-                                        </div>
-                                </div>
-                                <div class="circle-clipper right">
-                                        <div class="circle">
-                                        </div>
-                                </div>
-                        </div>
-                </div>
-        </div>
-</div>
-<br>
-        <br>
-        </br>
-</br>
-<div class="container">
-        <div class="section card" id="signal">
-                <div class="busy-indicator">
-                        <div class="preloader-wrapper big active">
-                                <div class="spinner-layer spinner-blue">
-                                        <div class="circle-clipper left">
-                                                <div class="circle">
-                                                </div>
-                                        </div>
-                                        <div class="gap-patch">
-                                                <div class="circle">
-                                                </div>
-                                        </div>
-                                        <div class="circle-clipper right">
-                                                <div class="circle">
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="spinner-layer spinner-red">
-                                        <div class="circle-clipper left">
-                                                <div class="circle">
-                                                </div>
-                                        </div>
-                                        <div class="gap-patch">
-                                                <div class="circle">
-                                                </div>
-                                        </div>
-                                        <div class="circle-clipper right">
-                                                <div class="circle">
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="spinner-layer spinner-yellow">
-                                        <div class="circle-clipper left">
-                                                <div class="circle">
-                                                </div>
-                                        </div>
-                                        <div class="gap-patch">
-                                                <div class="circle">
-                                                </div>
-                                        </div>
-                                        <div class="circle-clipper right">
-                                                <div class="circle">
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="spinner-layer spinner-green">
-                                        <div class="circle-clipper left">
-                                                <div class="circle">
-                                                </div>
-                                        </div>
-                                        <div class="gap-patch">
-                                                <div class="circle">
-                                                </div>
-                                        </div>
-                                        <div class="circle-clipper right">
-                                                <div class="circle">
-                                                </div>
-                                        </div>
-                                </div>
-                        </div>
-                </div>
-                <h5 class="center-align">
-                        Qualidade do sinal Wifi
-                </h5>
-                <div class="row">
-                        <div class="busy-indicator">
-                                <div class="preloader-wrapper big active">
-                                        <div class="spinner-layer spinner-blue">
-                                                <div class="circle-clipper left">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="gap-patch">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="circle-clipper right">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                        </div>
-                                        <div class="spinner-layer spinner-red">
-                                                <div class="circle-clipper left">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="gap-patch">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="circle-clipper right">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                        </div>
-                                        <div class="spinner-layer spinner-yellow">
-                                                <div class="circle-clipper left">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="gap-patch">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="circle-clipper right">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                        </div>
-                                        <div class="spinner-layer spinner-green">
-                                                <div class="circle-clipper left">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="gap-patch">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="circle-clipper right">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </div>
-                        </div>
-                        <div class="col l6 s12" id="signalC">
-                        </div>
-                        <div class="col l6 s12" id="signalCW">
-                        </div>
-                </div>
-                <div class="row center-align">
-                </div>
-        </div>
-        <div class="section card" id="temp">
-                <h5 class="center-align">
-                        Temperatura das salas de estudo
-                </h5>
-                <div class="row">
-                        <div class="busy-indicator">
-                                <div class="preloader-wrapper big active">
-                                        <div class="spinner-layer spinner-blue">
-                                                <div class="circle-clipper left">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="gap-patch">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="circle-clipper right">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                        </div>
-                                        <div class="spinner-layer spinner-red">
-                                                <div class="circle-clipper left">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="gap-patch">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="circle-clipper right">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                        </div>
-                                        <div class="spinner-layer spinner-yellow">
-                                                <div class="circle-clipper left">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="gap-patch">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="circle-clipper right">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                        </div>
-                                        <div class="spinner-layer spinner-green">
-                                                <div class="circle-clipper left">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="gap-patch">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="circle-clipper right">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </div>
-                        </div>
-                        <div class="col l6 s12" id="tempC">
-                        </div>
-                        <div class="col l6 s12" id="tempCW">
-                        </div>
-                </div>
-                <div class="row center-align">
-                </div>
-        </div>
-        <div class="section card" id="device">
-                <h5 class="center-align">
-                        Ocupação da rede Wifi
-                </h5>
-                <div class="row">
-                        <div class="busy-indicator">
-                                <div class="preloader-wrapper big active">
-                                        <div class="spinner-layer spinner-blue">
-                                                <div class="circle-clipper left">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="gap-patch">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="circle-clipper right">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                        </div>
-                                        <div class="spinner-layer spinner-red">
-                                                <div class="circle-clipper left">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="gap-patch">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="circle-clipper right">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                        </div>
-                                        <div class="spinner-layer spinner-yellow">
-                                                <div class="circle-clipper left">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="gap-patch">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="circle-clipper right">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                        </div>
-                                        <div class="spinner-layer spinner-green">
-                                                <div class="circle-clipper left">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="gap-patch">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                                <div class="circle-clipper right">
-                                                        <div class="circle">
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </div>
-                        </div>
-                        <div class="col l6 s12" id="deviceC">
-                        </div>
-                        <div class="col l6 s12" id="deviceCW">
-                        </div>
-                </div>
-                <div class="row center-align">
-                </div>
-        </div>
-</div>
-<footer class="page-footer color">
-        <div class="container">
-                <div class="row">
-                        <div class="col s12">
-                                <h4 class="center-align white-text">
-                                        Desenvolvedores
-                                </h4>
-                        </div>
-                        <div class="col l3 s12 offset-l2 center-align">
-                                <h5 class="center-align white-text">
-                                        João Pedro Borges
-                                </h5>
-                                <img class="circle responsive-img" src="images/avatars/jborges.jpeg"/>
-                                <div class="center-align">
-                                        <a class="center-align waves-effect waves-light btn grey darken-4" href="https://github.com/JPedroBorges">
-                                                GitHub
-                                        </a>
-                                        <a class="center-align waves-effect waves-light btn light-blue darken-4" href="https://www.linkedin.com/in/jpedroborges/">
-                                                LinkedIn
-                                        </a>
-                                </div>
-                        </div>
-                        <div class="col l3 s12 offset-l2 center-align">
-                                <h5 class="center-align white-text">
-                                        Joaquim Perez
-                                </h5>
-                                <img class="circle responsive-img" src="images/avatars/jperez.jpeg"/>
-                                <div class="center-align">
-                                        <a class="center-align waves-effect waves-light btn grey darken-4" href="https://github.com/perezjquim">
-                                                GitHub
-                                        </a>
-                                        <a class="center-align waves-effect waves-light btn light-blue darken-4" href="https://www.linkedin.com/in/perezjquim/">
-                                                LinkedIn
-                                        </a>
-                                </div>
-                        </div>
-                </div>
-        </div>
-        <div class="footer-copyright">
+                </br>
                 <div class="container">
-                        SmartUMa 2018 ©
+                        <div class="section card" id="signal">
+                                <div class="busy-indicator">
+                                        <div class="preloader-wrapper big active">
+                                                <div class="spinner-layer spinner-blue">
+                                                        <div class="circle-clipper left">
+                                                                <div class="circle">
+                                                                </div>
+                                                        </div>
+                                                        <div class="gap-patch">
+                                                                <div class="circle">
+                                                                </div>
+                                                        </div>
+                                                        <div class="circle-clipper right">
+                                                                <div class="circle">
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div class="spinner-layer spinner-red">
+                                                        <div class="circle-clipper left">
+                                                                <div class="circle">
+                                                                </div>
+                                                        </div>
+                                                        <div class="gap-patch">
+                                                                <div class="circle">
+                                                                </div>
+                                                        </div>
+                                                        <div class="circle-clipper right">
+                                                                <div class="circle">
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div class="spinner-layer spinner-yellow">
+                                                        <div class="circle-clipper left">
+                                                                <div class="circle">
+                                                                </div>
+                                                        </div>
+                                                        <div class="gap-patch">
+                                                                <div class="circle">
+                                                                </div>
+                                                        </div>
+                                                        <div class="circle-clipper right">
+                                                                <div class="circle">
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div class="spinner-layer spinner-green">
+                                                        <div class="circle-clipper left">
+                                                                <div class="circle">
+                                                                </div>
+                                                        </div>
+                                                        <div class="gap-patch">
+                                                                <div class="circle">
+                                                                </div>
+                                                        </div>
+                                                        <div class="circle-clipper right">
+                                                                <div class="circle">
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                                <h5 class="center-align">
+                                        Qualidade do sinal Wifi
+                                </h5>
+                                <div class="row">
+                                        <div class="busy-indicator">
+                                                <div class="preloader-wrapper big active">
+                                                        <div class="spinner-layer spinner-blue">
+                                                                <div class="circle-clipper left">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="gap-patch">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="circle-clipper right">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <div class="spinner-layer spinner-red">
+                                                                <div class="circle-clipper left">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="gap-patch">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="circle-clipper right">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <div class="spinner-layer spinner-yellow">
+                                                                <div class="circle-clipper left">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="gap-patch">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="circle-clipper right">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <div class="spinner-layer spinner-green">
+                                                                <div class="circle-clipper left">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="gap-patch">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="circle-clipper right">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="col l6 s12" id="signalC">
+                                        </div>
+                                        <div class="col l6 s12" id="signalCW">
+                                        </div>
+                                </div>
+                                <div class="row center-align">
+                                </div>
+                        </div>
+                        <div class="section card" id="temp">
+                                <h5 class="center-align">
+                                        Temperatura das salas de estudo
+                                </h5>
+                                <div class="row">
+                                        <div class="busy-indicator">
+                                                <div class="preloader-wrapper big active">
+                                                        <div class="spinner-layer spinner-blue">
+                                                                <div class="circle-clipper left">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="gap-patch">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="circle-clipper right">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <div class="spinner-layer spinner-red">
+                                                                <div class="circle-clipper left">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="gap-patch">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="circle-clipper right">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <div class="spinner-layer spinner-yellow">
+                                                                <div class="circle-clipper left">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="gap-patch">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="circle-clipper right">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <div class="spinner-layer spinner-green">
+                                                                <div class="circle-clipper left">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="gap-patch">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="circle-clipper right">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="col l6 s12" id="tempC">
+                                        </div>
+                                        <div class="col l6 s12" id="tempCW">
+                                        </div>
+                                </div>
+                                <div class="row center-align">
+                                </div>
+                        </div>
+                        <div class="section card" id="device">
+                                <h5 class="center-align">
+                                        Ocupação da rede Wifi
+                                </h5>
+                                <div class="row">
+                                        <div class="busy-indicator">
+                                                <div class="preloader-wrapper big active">
+                                                        <div class="spinner-layer spinner-blue">
+                                                                <div class="circle-clipper left">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="gap-patch">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="circle-clipper right">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <div class="spinner-layer spinner-red">
+                                                                <div class="circle-clipper left">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="gap-patch">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="circle-clipper right">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <div class="spinner-layer spinner-yellow">
+                                                                <div class="circle-clipper left">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="gap-patch">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="circle-clipper right">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <div class="spinner-layer spinner-green">
+                                                                <div class="circle-clipper left">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="gap-patch">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="circle-clipper right">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="col l6 s12" id="deviceC">
+                                        </div>
+                                        <div class="col l6 s12" id="deviceCW">
+                                        </div>
+                                </div>
+                                <div class="row center-align">
+                                </div>
+                        </div>
+                        <!--<div class="section card" id="seats">
+                                <h5 class="center-align">
+                                        Ocupação das salas de estudo
+                                </h5>
+                                <div class="row">
+                                        <div class="busy-indicator">
+                                                <div class="preloader-wrapper big active">
+                                                        <div class="spinner-layer spinner-blue">
+                                                                <div class="circle-clipper left">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="gap-patch">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="circle-clipper right">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <div class="spinner-layer spinner-red">
+                                                                <div class="circle-clipper left">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="gap-patch">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="circle-clipper right">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <div class="spinner-layer spinner-yellow">
+                                                                <div class="circle-clipper left">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="gap-patch">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="circle-clipper right">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <div class="spinner-layer spinner-green">
+                                                                <div class="circle-clipper left">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="gap-patch">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="circle-clipper right">
+                                                                        <div class="circle">
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="col l6 s12" id="seatsC">
+                                        </div>
+                                        <div class="col l6 s12" id="seatsCW">
+                                        </div>
+                                </div>
+                                <div class="row center-align">
+                                </div>
+                        </div>-->
                 </div>
-        </div>
-</footer>
+                <footer class="page-footer color">
+                        <div class="container">
+                                <div class="row">
+                                        <div class="col s12">
+                                                <h4 class="center-align white-text">
+                                                        Desenvolvedores
+                                                </h4>
+                                        </div>
+                                        <div class="col l3 s12 offset-l2 center-align">
+                                                <h5 class="center-align white-text">
+                                                        João Pedro Borges
+                                                </h5>
+                                                <img class="circle responsive-img" src="images/avatars/jborges.jpeg"/>
+                                                <div class="center-align">
+                                                        <a class="center-align waves-effect waves-light btn grey darken-4" href="https://github.com/JPedroBorges">
+                                                                GitHub
+                                                        </a>
+                                                        <a class="center-align waves-effect waves-light btn light-blue darken-4" href="https://www.linkedin.com/in/jpedroborges/">
+                                                                LinkedIn
+                                                        </a>
+                                                </div>
+                                        </div>
+                                        <div class="col l3 s12 offset-l2 center-align">
+                                                <h5 class="center-align white-text">
+                                                        Joaquim Perez
+                                                </h5>
+                                                <img class="circle responsive-img" src="images/avatars/jperez.jpeg"/>
+                                                <div class="center-align">
+                                                        <a class="center-align waves-effect waves-light btn grey darken-4" href="https://github.com/perezjquim">
+                                                                GitHub
+                                                        </a>
+                                                        <a class="center-align waves-effect waves-light btn light-blue darken-4" href="https://www.linkedin.com/in/perezjquim/">
+                                                                LinkedIn
+                                                        </a>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="footer-copyright">
+                                <div class="container">
+                                        SmartUMa 2018 ©
+                                </div>
+                        </div>
+                </footer>
+        </body>
+</html>
 <script>
         (function($){
                   $(function(){
-
                     $('.sidenav').sidenav();
-                  }); // end of document ready
-                })(jQuery); // end of jQuery name space
+                  });
+                })(jQuery);
 </script>

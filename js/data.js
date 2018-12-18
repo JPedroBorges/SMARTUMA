@@ -1,4 +1,4 @@
-function fillData(days)
+function fillData(days, today)
 {
         $.get(config.url, (res) =>
         {
@@ -35,6 +35,11 @@ function fillSatData()
         }];
         drawChart('satChart', charts.grau_sat);
         adaptTheme(grau_sat);
+        if (window.isNotViable)
+        {
+                window.isNotViable = undefined;
+                $(".overlay").css("display", "unset");
+        }
 }
 
 function fillDeviceData(sensors, days)
@@ -47,6 +52,8 @@ function fillDeviceData(sensors, days)
                 $.get(href).done((res) =>
                 {
                         const measures = sortMeasuresAsc(res.data);
+                        const isNotViable = !filterByDay(measures, days[6]).length;
+                        if (isNotViable) window.isNotViable = isNotViable;
                         charts.device.data = measures;
                 });
                 days.forEach((d, index) =>
@@ -77,6 +84,8 @@ function fillSignalData(sensors, days)
                         $.get(href).done((res) =>
                         {
                                 const measures = sortMeasuresAsc(res.data);
+                                const isNotViable = !filterByDay(measures, days[6]).length;
+                                if (isNotViable) window.isNotViable = isNotViable;
                                 days.forEach((d, index) =>
                                 {
                                         if (averages[index])
@@ -112,6 +121,8 @@ function fillTempData(sensors, days)
                         $.get(href).done((res) =>
                         {
                                 const measures = sortMeasuresAsc(res.data);
+                                const isNotViable = !filterByDay(measures, days[6]).length;
+                                if (isNotViable) window.isNotViable = isNotViable;
                                 charts.temp.dataset.push(
                                 {
                                         seriesname: data.room,
