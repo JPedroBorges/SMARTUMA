@@ -9,9 +9,9 @@ function fillData(days, today)
                 var signal_sensors = sensors.filter((s) => s.name.includes("Wifi"));
                 signal_sensors = signal_sensors.map((s) => s.href.link);
                 fillSignalData(signal_sensors, days);
-                var device_sensors = sensors.filter((s) => s.name.includes("Device"));
+                /*var device_sensors = sensors.filter((s) => s.name.includes("Device"));
                 device_sensors = device_sensors.map((s) => s.href.link);
-                fillDeviceData(device_sensors, days);
+                fillDeviceData(device_sensors, days);*/
                 $.ajaxSetup(
                 {
                         async: true
