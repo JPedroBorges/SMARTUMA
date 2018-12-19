@@ -24,10 +24,10 @@ function fillSatData()
 {
         const temp_latest_avg = calculateAverage(flattenValues(charts.temp_week.dataset[0].data));
         const signal_latest_avg = calculateAverage(flattenValues(charts.signal_week.dataset[0].data));
-        const device_latest = calculateAverage(flattenValues(charts.device_week.data));
+        //const device_latest = calculateAverage(flattenValues(charts.device_week.data));
         const temp_sat_value = 1 - Math.min(Math.max(0, Math.abs((temp_latest_avg - config.ideal_temp) / config.ideal_temp)), 1);
         const signal_sat_value = Math.min(Math.max(0, config.ideal_signal / signal_latest_avg), 1);
-        const device_sat_value = Math.min(Math.max(0, config.ideal_devices / device_latest), 1);
+        //const device_sat_value = Math.min(Math.max(0, config.ideal_devices / device_latest), 1);
         const grau_sat = config.temp_importance * temp_sat_value + config.signal_importance * signal_sat_value + config.device_importance * device_sat_value;
         charts.grau_sat.dials.dial = [
         {
