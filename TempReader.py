@@ -10,14 +10,14 @@ device_file = device_folder + '/w1_slave'
 
 class TempReader(Component):
 
-    def __init__(self,GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL,SAMPLING_RATE):
-        super().__init__(GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL,SAMPLING_RATE)
+    def __init__(self,GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL,SAMPLING_RATE,DEVICE_ID):
+        super().__init__(GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL,SAMPLING_RATE,DEVICE_ID)
 
     def run(self):
         while True:
             temp = self.read_temp()
             print("Temperature: " + str(temp) + "ºC")
-            self.post_data({ 'value': temp, 'unit': 'ºC' })
+            self.post_data({ 'value': temp, 'unit': 'ºC' },DEVICE_ID)
             time.sleep(self.SAMPLING_RATE)   
 
     def read_temp_raw(self):

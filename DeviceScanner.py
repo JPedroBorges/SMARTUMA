@@ -9,8 +9,8 @@ network = '10.2.0.0/16'
 
 class DeviceScanner(Component):
 
-        def __init__(self,GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL,SAMPLING_RATE):
-            super().__init__(GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL,SAMPLING_RATE)
+        def __init__(self,GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL,SAMPLING_RATE,DEVICE_ID):
+            super().__init__(GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL,SAMPLING_RATE,DEVICE_ID)
 
         def run(self):
 
@@ -30,6 +30,6 @@ class DeviceScanner(Component):
 
                 print('@@ Detected {} devices! @@'.format(count))
 
-                self.post_data({ 'value': count, 'unit':'devices' })
+                self.post_data({ 'value': count, 'unit':'devices' },DEVICE_ID)
 
                 count = 0

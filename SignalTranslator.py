@@ -8,14 +8,14 @@ interface = "wlan0"
 
 class SignalTranslator(Component):
 
-   def __init__(self,GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL,SAMPLING_RATE):
-      super().__init__(GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL,SAMPLING_RATE)
+   def __init__(self,GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL,SAMPLING_RATE,DEVICE_ID):
+      super().__init__(GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL,SAMPLING_RATE,DEVICE_ID)
 
    def run(self):
       while True:
          signal = self.read_signal_raw()  
          print("Wifi Signal: " + self.translate_signal(signal) + '(' + str(signal) + ')')
-         self.post_data({ 'value': signal, 'unit': 'dBm' })
+         self.post_data({ 'value': signal, 'unit': 'dBm' },DEVICE_ID)
          time.sleep(self.SAMPLING_RATE)
 
    def read_signal_raw(self):

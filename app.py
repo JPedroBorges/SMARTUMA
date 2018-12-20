@@ -1,4 +1,5 @@
 import os
+import datetime
 from TempReader import TempReader
 from SignalTranslator import SignalTranslator
 from DeviceScanner import DeviceScanner
@@ -36,7 +37,7 @@ with open(SENSORS_FILE, "r") as file:
 print(SENSORS)
     
 if __name__ == "__main__":
-    TempReader(GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL.replace("@",SENSORS["temp"]),SAMPLING_RATE).start()
-    SignalTranslator(GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL.replace("@",SENSORS["signal"]),SAMPLING_RATE).start()   
+    TempReader(GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL.replace("@",SENSORS["temp"]),SAMPLING_RATE, SENSORS["temp"])).start()
+    SignalTranslator(GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL.replace("@",SENSORS["signal"]),SAMPLING_RATE, SENSORS["signal"]).start()   
     if "device" in SENSORS: 
-    	DeviceScanner(GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL.replace("@",SENSORS["device"]),SAMPLING_RATE).start()
+    	DeviceScanner(GET_TOKEN_URL,GET_TOKEN_HEADERS,GET_TOKEN_DATA,POST_DATA_URL.replace("@",SENSORS["device"]),SAMPLING_RATE, SENSORS["device"]).start()
