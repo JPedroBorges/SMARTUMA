@@ -3,9 +3,9 @@ from sqlite3 import Error
 
 DATABASE = "./db/db.db"
 
-class DBConnection():
+class Conn():
     def __init__(self):
-        self.conn = self.create_connection(DATABASE)
+        self.create_connection(DATABASE)
 
     def create_table(self):
         sql_create_measures_table = """ CREATE TABLE IF NOT EXISTS measures (
@@ -25,13 +25,12 @@ class DBConnection():
 
     def create_connection(self, db_file):
         try:
-            conn = sqlite3.connect(db_file)
-            if conn is not None:
+            self.conn = sqlite3.connect(db_file)
+            if self.conn is not None:
                 self.create_table()
-            return conn
         except Error as e:
             print(e)
-        return None
+            self.conn = None
 
     def create_measure(self, measure):
         sql = ''' INSERT INTO measures(sensor_id,value,unit,timestamp,sent)
