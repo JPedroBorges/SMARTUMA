@@ -14,7 +14,7 @@ class DBConnection():
                                     value integer NOT NULL,
                                     unit real NOT NULL,
                                     timestamp text NOT NULL,
-                                    sent real NOT NULL,
+                                    sent real NOT NULL
                                 ); """
 
         try:
