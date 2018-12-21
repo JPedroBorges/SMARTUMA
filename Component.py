@@ -34,7 +34,7 @@ class Component(threading.Thread):
                 print('error ' + str(res.status_code) + ' while sending data')            
             else:
                 print('success sending data')
-                measure = (self.DEVICE_ID, data.value, data.unit, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 1)
+                measure = (self.DEVICE_ID, data['value'], data['unit'], datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 1)
 
         with conn.conn:
             conn.create_measure(measure)
