@@ -19,7 +19,7 @@ class Component(threading.Thread):
     def post_data(self,data):
         conn = DBConnection()
 
-        measure = (self.DEVICE_ID, data.value, data.unit, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 0)
+        measure = (self.DEVICE_ID, data['value'], data['unit'], datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 0)
 
         res = requests.post(self.GET_TOKEN_URL, headers=self.GET_TOKEN_HEADERS, data=self.GET_TOKEN_DATA, timeout=TIMEOUT)
         if(res.status_code < 200 or res.status_code >= 300):
