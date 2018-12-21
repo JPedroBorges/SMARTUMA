@@ -17,7 +17,7 @@ class TempReader(Component):
         while True:
             temp = self.read_temp()
             print("Temperature: " + str(temp) + "ºC")
-            self.post_data({ 'value': temp, 'unit': 'ºC' },self.DEVICE_ID)
+            self.post_data({ 'value': temp, 'unit': 'ºC' })
             time.sleep(self.SAMPLING_RATE)   
 
     def read_temp_raw(self):
