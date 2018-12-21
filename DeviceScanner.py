@@ -30,6 +30,6 @@ class DeviceScanner(Component):
 
                 print('@@ Detected {} devices! @@'.format(count))
 
-                self.post_data({ 'value': count, 'unit':'devices' },DEVICE_ID)
+                self.post_data({ 'value': count, 'unit':'devices' },self.DEVICE_ID)
 
                 count = 0

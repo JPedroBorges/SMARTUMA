@@ -15,7 +15,7 @@ class SignalTranslator(Component):
       while True:
          signal = self.read_signal_raw()  
          print("Wifi Signal: " + self.translate_signal(signal) + '(' + str(signal) + ')')
-         self.post_data({ 'value': signal, 'unit': 'dBm' },DEVICE_ID)
+         self.post_data({ 'value': signal, 'unit': 'dBm' },self.DEVICE_ID)
          time.sleep(self.SAMPLING_RATE)
 
    def read_signal_raw(self):
