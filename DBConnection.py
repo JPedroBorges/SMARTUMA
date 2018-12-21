@@ -3,7 +3,7 @@ from sqlite3 import Error
 
 DATABASE = "./db/db.db"
 
-class Conn():
+class DBConnection():
     def __init__(self):
         self.conn = self.create_connection(DATABASE)
 

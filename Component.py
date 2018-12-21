@@ -2,7 +2,7 @@ import threading
 import requests
 import json
 import datetime
-from Conn import Conn
+from DBConnection import DBConnection
 
 TIMEOUT = 10
 
@@ -17,7 +17,7 @@ class Component(threading.Thread):
         self.DEVICE_ID = DEVICE_ID
 
     def post_data(self,data):
-        conn = Conn()
+        conn = DBConnection()
 
         measure = (self.DEVICE_ID, data.value, data.unit, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 0)
 
