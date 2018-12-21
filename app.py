@@ -1,5 +1,4 @@
 import os
-import datetime
 from TempReader import TempReader
 from SignalTranslator import SignalTranslator
 from DeviceScanner import DeviceScanner

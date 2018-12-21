@@ -1,6 +1,7 @@
 import threading
 import requests
 import json
+import datetime
 from Conn import Conn
 
 TIMEOUT = 10
@@ -13,13 +14,12 @@ class Component(threading.Thread):
         self.GET_TOKEN_DATA = GET_TOKEN_DATA      
         self.POST_DATA_URL = POST_DATA_URL
         self.SAMPLING_RATE = SAMPLING_RATE
+        self.DEVICE_ID = DEVICE_ID
 
     def post_data(self,data):
-        self.conn = create_connection(database)
+        conn = Conn()
 
-        success = 0
-        measure = (DEVICE_ID, value, unit, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), success)
-
+        measure = (self.DEVICE_ID, data.value, data.unit, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 0)
 
         res = requests.post(self.GET_TOKEN_URL, headers=self.GET_TOKEN_HEADERS, data=self.GET_TOKEN_DATA, timeout=TIMEOUT)
         if(res.status_code < 200 or res.status_code >= 300):
@@ -34,7 +34,7 @@ class Component(threading.Thread):
                 print('error ' + str(res.status_code) + ' while sending data')            
             else:
                 print('success sending data')
-                measure[5] = 1
+                measure = (self.DEVICE_ID, data.value, data.unit, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 1)
 
-        with conn:
-            create_measure(conn, measure)
+        with conn.conn:
+            conn.create_measure(measure)

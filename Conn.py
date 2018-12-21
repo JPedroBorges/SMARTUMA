@@ -5,9 +5,9 @@ DATABASE = "./db/db.db"
 
 class Conn():
     def __init__(self):
-        conn = self.create_connection(DATABASE)
+        self.conn = self.create_connection(DATABASE)
 
-    def create_table(self, conn):
+    def create_table(self):
         sql_create_measures_table = """ CREATE TABLE IF NOT EXISTS measures (
                                     id integer PRIMARY KEY,
                                     sensor_id integer NOT NULL,
@@ -18,7 +18,7 @@ class Conn():
                                 ); """
 
         try:
-            c = conn.cursor()
+            c = self.conn.cursor()
             c.execute(sql_create_measures_table)
         except Error as e:
             print(e)
@@ -27,20 +27,15 @@ class Conn():
         try:
             conn = sqlite3.connect(db_file)
             if conn is not None:
-                self.create_table(conn)
+                self.create_table()
             return conn
         except Error as e:
             print(e)
         return None
 
-    def create_measure(self, conn, measure):
-        sql = ''' INSERT INTO measures(sensor_id,value,unit,timestamp)
-                VALUES(?,?,?,?) '''
-        cur = conn.cursor()
+    def create_measure(self, measure):
+        sql = ''' INSERT INTO measures(sensor_id,value,unit,timestamp,sent)
+                VALUES(?,?,?,?,?) '''
+        cur = self.conn.cursor()
         cur.execute(sql, measure)
         return cur.lastrowid
-
-"""         conn = create_connection(database)
-        measure = (1, 10, 'ºC', datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-        with conn:
-            create_measure(conn, measure) """
