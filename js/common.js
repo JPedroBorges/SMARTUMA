@@ -106,3 +106,14 @@ function calculateAverage(measures)
         var sum = measures.reduce((a, b) => +a + +b);
         return sum / measures.length;
 }
+
+function groupBy(array, property)
+{
+        return array.reduce(function(result, current)
+        {
+                result[current[property]] = result[current[property]] || [];
+                result[current[property]].push(current);
+                return result;
+        },
+        {});
+}

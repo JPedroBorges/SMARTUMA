@@ -30,12 +30,22 @@ const config = {
                 }
         },
         "url": "https://jpborges.pt/smartuma/api/sensors",
-        "ideal_temp": 25,
+        "external":
+        {
+                "occupation":
+                {
+                        "rooms": "https://smartrooms.ddns.net/api/rooms",
+                        "daily": " https://smartrooms.ddns.net/api/rooms/occupation/daily"
+                }
+        },
+        "ideal_temp": 23,
         "ideal_signal": -40,
         "ideal_devices": 30,
-        "temp_importance": 45,
+        "ideal_occ": 50,
+        "temp_importance": 35,
         "device_importance": 0,
-        "signal_importance": 55
+        "signal_importance": 45,
+        "occ_importance": 20,
 }
 const charts = {
         "grau_sat":
@@ -216,5 +226,23 @@ const charts = {
                                 "label": "Má"
                         }]
                 }
+        },
+        "occ_week":
+        {
+                "type": "mscolumn2d",
+                "chart":
+                {
+                        "caption": "Últimos 7 dias (média)",
+                        "numbersuffix": " ºC",
+                        "xAxisName": "Data",
+                        "yAxisName": "# lugares ocupados",
+                        "theme": config.chart.theme,
+                        "drawAnchors": config.chart.drawAnchors
+                },
+                "categories": [
+                {
+                        "category": getLast7Days()
+                }],
+                "dataset": []
         }
 };

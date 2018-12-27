@@ -12,6 +12,7 @@ function fillData(days, today)
                 /*var device_sensors = sensors.filter((s) => s.name.includes("Device"));
                 device_sensors = device_sensors.map((s) => s.href.link);
                 fillDeviceData(device_sensors, days);*/
+                fillExternalData();
                 $.ajaxSetup(
                 {
                         async: true
@@ -20,15 +21,54 @@ function fillData(days, today)
         });
 }
 
+function fillExternalData()
+{
+        $.get(config.external.occupation.rooms, (res) =>
+        {
+                const rooms = res.map(r => (
+                {
+                        seriesname: r.nome_sala,
+                        id: r.id,
+                        capacidade: r.capacidade
+                }));
+                $.get(config.external.occupation.daily, (res) =>
+                {
+                        const occupations = groupBy(res, "id_room");
+                        for (var room in occupations)
+                        {
+                                var occupation = occupations[room].map(o => (
+                                {
+                                        value: o.occupied_seats_avg,
+                                        week_day: o.week_day
+                                })).sort((a, b) => (a.week_day - b.week_day)).map(o => (
+                                {
+                                        value: o.value
+                                }));
+                                var _room = rooms[room];
+                                _room.data = occupation || [];
+                        }
+                        charts.occ_week.dataset = rooms;
+                        drawChart('occCW', charts.occ_week);
+                });
+        });
+}
+
 function fillSatData()
 {
-        const temp_latest_avg = calculateAverage(flattenValues(charts.temp_week.dataset[0].data));
+        //const device_latest = calculateAverage(flattenValues(charts.device_week.data));        
+        //const device_sat_value = Math.min(Math.max(0, config.ideal_devices / device_latest), 1);        
+        const temp_latest_avg = calculateAverage(flattenValues(charts.temp_week.dataset.map(c => (
+        {
+                value: calculateAverage(flattenValues(c.data))
+        }))))
         const signal_latest_avg = calculateAverage(flattenValues(charts.signal_week.dataset[0].data));
-        //const device_latest = calculateAverage(flattenValues(charts.device_week.data));
+        const occ_sat_value = calculateAverage(flattenValues(charts.occ_week.dataset.map(c => (
+        {
+                value: calculateAverage(flattenValues(c.data)) / c.capacidade
+        }))));
         const temp_sat_value = 1 - Math.min(Math.max(0, Math.abs((temp_latest_avg - config.ideal_temp) / config.ideal_temp)), 1);
         const signal_sat_value = Math.min(Math.max(0, config.ideal_signal / signal_latest_avg), 1);
-        //const device_sat_value = Math.min(Math.max(0, config.ideal_devices / device_latest), 1);
-        const grau_sat = config.temp_importance * temp_sat_value + config.signal_importance * signal_sat_value;
+        const grau_sat = config.temp_importance * temp_sat_value + config.signal_importance * signal_sat_value + config.occ_importance * occ_sat_value;
         //const grau_sat = config.temp_importance * temp_sat_value + config.signal_importance * signal_sat_value + config.device_importance * device_sat_value;
         charts.grau_sat.dials.dial = [
         {
