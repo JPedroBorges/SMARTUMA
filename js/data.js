@@ -142,7 +142,6 @@ function fillOccupationData(days)
                 {
                         $.get(config.external.occupation.events.replace("@room@", rooms[i].id).replace("@from@", yesterday).replace("@to@", today), (res) =>
                         {
-                                console.log(res);
                                 charts.occ.dataset.push(
                                 {
                                         seriesname: rooms[i].seriesname,
