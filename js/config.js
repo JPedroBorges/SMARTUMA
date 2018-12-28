@@ -41,11 +41,11 @@ const config = {
         "ideal_temp": 23,
         "ideal_signal": -40,
         "ideal_devices": 30,
-        "ideal_occ": 50,
+        "ideal_occ": 30,
         "temp_importance": 35,
         "device_importance": 0,
-        "signal_importance": 45,
-        "occ_importance": 20,
+        "signal_importance": 35,
+        "occ_importance": 30,
 }
 const charts = {
         "grau_sat":
