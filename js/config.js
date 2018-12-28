@@ -35,7 +35,8 @@ const config = {
                 "occupation":
                 {
                         "rooms": "https://smartrooms.ddns.net/api/rooms",
-                        "daily": " https://smartrooms.ddns.net/api/rooms/occupation/daily"
+                        "daily": " https://smartrooms.ddns.net/api/rooms/occupation/daily",
+                        "events": "https://smartrooms.ddns.net/api/room/@room@/events/@from@/@to@"
                 }
         },
         "ideal_temp": 23,
@@ -233,7 +234,6 @@ const charts = {
                 "chart":
                 {
                         "caption": "Últimos 7 dias (média)",
-                        "numbersuffix": " ºC",
                         "xAxisName": "Data",
                         "yAxisName": "# lugares ocupados",
                         "theme": config.chart.theme,
@@ -242,6 +242,26 @@ const charts = {
                 "categories": [
                 {
                         "category": getLast7Days()
+                }],
+                "dataset": []
+        },
+        "occ":
+        {
+                "type": "msspline",
+                "chart":
+                {
+                        "caption": "",
+                        "xaxisname": "",
+                        "yaxisname": "# lugares ocupados",
+                        "showhovereffect": "1",
+                        "drawcrossline": "1",
+                        "plottooltext": "$seriesName: <b>$dataValue</b>",
+                        "theme": config.chart.theme,
+                        "drawAnchors": config.chart.drawAnchors
+                },
+                "categories": [
+                {
+                        "category": new Array(30)
                 }],
                 "dataset": []
         }

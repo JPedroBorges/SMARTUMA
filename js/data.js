@@ -9,49 +9,12 @@ function fillData(days, today)
                 var signal_sensors = sensors.filter((s) => s.name.includes("Wifi"));
                 signal_sensors = signal_sensors.map((s) => s.href.link);
                 fillSignalData(signal_sensors, days);
-                fillExternalData();
+                fillExternalData(days);
                 $.ajaxSetup(
                 {
                         async: true
                 });
                 fillSatData();
-        });
-}
-
-function fillExternalData()
-{
-        fillOccupationData();
-}
-
-function fillOccupationData()
-{
-        $.get(config.external.occupation.rooms, (res) =>
-        {
-                const rooms = res.map(r => (
-                {
-                        seriesname: r.nome_sala,
-                        id: r.id,
-                        capacidade: r.capacidade
-                }));
-                $.get(config.external.occupation.daily, (res) =>
-                {
-                        const occupations = groupBy(res, "id_room");
-                        for (var room in occupations)
-                        {
-                                var occupation = occupations[room].map(o => (
-                                {
-                                        value: o.occupied_seats_avg,
-                                        week_day: o.week_day
-                                })).sort((a, b) => (a.week_day - b.week_day)).map(o => (
-                                {
-                                        value: o.value
-                                }));
-                                var _room = rooms[room];
-                                _room.data = occupation || [];
-                        }
-                        charts.occ_week.dataset = rooms;
-                        drawChart('occCW', charts.occ_week);
-                });
         });
 }
 
@@ -153,4 +116,62 @@ function fillTempData(sensors, days)
         });
         drawChart('tempC', charts.temp);
         drawChart('tempCW', charts.temp_week);
+}
+
+function fillExternalData()
+{
+        fillOccupationData();
+}
+
+function fillOccupationData(days)
+{
+        $.get(config.external.occupation.rooms, (res) =>
+        {
+                const rooms = res.map(r => (
+                {
+                        seriesname: r.nome_sala,
+                        id: r.id,
+                        capacidade: r.capacidade
+                }));
+                var today = new Date();
+                var yesterday = today;
+                today = today.toISOString();
+                yesterday.setDate(yesterday.getDate() - 1);
+                yesterday = yesterday.toISOString();
+                for (var i = 0; i < rooms.length; i++)
+                {
+                        $.get(config.external.occupation.events.replace("@room@", rooms[i].id).replace("@from@", yesterday).replace("@to@", today), (res) =>
+                        {
+                                console.log(res);
+                                charts.occ.dataset.push(
+                                {
+                                        seriesname: rooms[i].seriesname,
+                                        data: res.slice(0, 30).map(v => (
+                                        {
+                                                value: v.occupied_seats
+                                        }))
+                                })
+                        });
+                }
+                drawChart('occC', charts.occ);
+                $.get(config.external.occupation.daily, (res) =>
+                {
+                        const occupations = groupBy(res, "id_room");
+                        for (var room in occupations)
+                        {
+                                var occupation = occupations[room].map(o => (
+                                {
+                                        value: o.occupied_seats_avg,
+                                        week_day: o.week_day
+                                })).sort((a, b) => (a.week_day - b.week_day)).map(o => (
+                                {
+                                        value: o.value
+                                }));
+                                var _room = rooms[room];
+                                _room.data = occupation || [];
+                        }
+                        charts.occ_week.dataset = rooms;
+                        drawChart('occCW', charts.occ_week);
+                });
+        });
 }
