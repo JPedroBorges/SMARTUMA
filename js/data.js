@@ -136,7 +136,7 @@ function fillOccupationData(days)
                 var today = new Date();
                 var yesterday = today;
                 today = today.toISOString();
-                yesterday.setDate(yesterday.getDate() - 1);
+                yesterday.setDate(yesterday.getDate() - 6);
                 yesterday = yesterday.toISOString();
                 for (var i = 0; i < rooms.length; i++)
                 {
