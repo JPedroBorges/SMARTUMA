@@ -47,7 +47,8 @@ class MeasureController extends Controller
 
         $measure->value = $request->value; 
         $measure->unit = $request->unit; 
-        $measure->created_at = $request->timestamps_at;
+        if($request->timestamps_at)
+            $measure->created_at = $request->timestamps_at;
 
         $sensor->measures()->save($measure);
 
